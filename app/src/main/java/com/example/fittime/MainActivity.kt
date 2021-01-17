@@ -48,10 +48,35 @@ class MainActivity : AppCompatActivity() {
             .withSelectedItem(-1)
             .withAccountHeader(mHeader)
             .addDrawerItems(
-                PrimaryDrawerItem().withIdentifier(100)
-                    .withIconTintingEnabled(true)
-                    .withName("Профиль")
-                    .withSelectable(false)
+                    PrimaryDrawerItem().withIdentifier(100)
+                            .withName("Профиль")
+                            .withSelectable(false)
+                            .withIcon(R.drawable.ic_profile),
+
+                    PrimaryDrawerItem().withIdentifier(101)
+                            .withName("Расписание тренировки")
+                            .withSelectable(false)
+                            .withIcon(R.drawable.ic_calender),
+
+                    PrimaryDrawerItem().withIdentifier(102)
+                            .withName("Перерыв на обед")
+                            .withSelectable(false)
+                            .withIcon(R.drawable.ic_coffee),
+
+                    PrimaryDrawerItem().withIdentifier(103)
+                            .withName("Данные о тренировке")
+                            .withSelectable(false)
+                            .withIcon(R.drawable.ic_notepad),
+
+                    PrimaryDrawerItem().withIdentifier(104)
+                            .withName("Статистика")
+                            .withSelectable(false)
+                            .withIcon(R.drawable.ic_graph),
+
+                    PrimaryDrawerItem().withIdentifier(105)
+                            .withName("Полезная информация")
+                            .withSelectable(false)
+                            .withIcon(R.drawable.ic_info),
             ).build()
     }
 
