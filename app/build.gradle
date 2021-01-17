@@ -35,7 +35,7 @@ android {
 
 dependencies {
 
-    implementation "com.mikepenz:materialdrawer:8.3.1"
+    implementation "com.mikepenz:materialdrawer:7.0.0"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
@@ -47,12 +47,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 
-    implementation "androidx.recyclerview:recyclerview:1.2.0"
-    implementation "androidx.annotation:annotation:1.2.0"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.annotation:annotation:1.1.0"
+
 
 // Add for NavController support
-    implementation "com.mikepenz:materialdrawer-nav:8.3.1"
+    implementation "com.mikepenz:materialdrawer-nav:7.0.0"
 
 // Add for Android-Iconics support
-    implementation "com.mikepenz:materialdrawer-iconics:8.3.1"
+   // implementation "com.mikepenz:materialdrawer-iconics:7.0.0"
 }
