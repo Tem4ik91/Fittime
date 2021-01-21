@@ -12,7 +12,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() { //теттмстмт
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mHeader: AccountHeader
