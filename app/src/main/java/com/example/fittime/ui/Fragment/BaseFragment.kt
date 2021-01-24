@@ -1,27 +1,27 @@
-package com.example.fittime.ui
+package com.example.fittime.ui.Fragment
 
 import android.os.Bundle
+import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fittime.R
-import com.example.fittime.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment() {
+  open class BaseFragment( var layout:Int) : Fragment() {
 
-    private lateinit var mBinding: FragmentHomeBinding
+    private lateinit var mRootView: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentHomeBinding.inflate(layoutInflater)
-        return mBinding.root
+        mRootView = inflater.inflate(layout, container, false)
+        return mRootView
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-}
+      override fun onStart() {
+          super.onStart()
+      }
+  }
