@@ -2,5 +2,8 @@
     <string name="app_name">Fittime</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Name_default">Name polzovatel</string>
+    <string name="text_name_default">Name polzovatel</string>
+    <string name="setting_text_account">Аккаунт</string>
+    <string name="text_setting_phone_default">+79156478143</string>
+    <string name="settings_label_phone_number">Нажмите, чтобы изменить аккаунт</string>
 </resources>
