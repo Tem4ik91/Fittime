@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-
     }
 
     override fun onStart() {
@@ -37,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.dataContainer, HomeFragment()).commit()
 
     }
-
 
 
     private fun initFields() {
