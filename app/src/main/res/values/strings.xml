@@ -3,7 +3,32 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_name_default">Name polzovatel</string>
+
     <string name="setting_text_account">Аккаунт</string>
     <string name="text_setting_phone_default">+79156478143</string>
     <string name="settings_label_phone_number">Нажмите, чтобы изменить аккаунт</string>
+
+    <!--Блок О себе-->
+    <string name="text_setting_about_me">О себе</string>
+
+    <string name="text_setting_sex">Пол</string>
+    <string name="text_setting_sex_defauit">Муж</string>
+    <string name="settings_label_sex">Нажмите, чтобы указать ваш пол</string>
+
+    <string name="text_setting_birthday">Дата рождения</string>
+    <string name="text_setting_birthday_defauit">28.03.1991</string>
+    <string name="settings_label_birthday">Нажмите, чтобы указать вашу дату рождения</string>
+
+    <string name="text_setting_growth">Ваш рост</string>
+    <string name="text_setting_growth_defauit">174см</string>
+    <string name="settings_label_growth">Нажмите, чтобы указать ваш рост</string>
+
+    <string name="text_setting_weight">Ваш вес</string>
+    <string name="text_setting_weight_defauit">72 кг</string>
+    <string name="settings_label_weight">Нажмите, чтобы указать ваш вес</string>
+
+
+
+    <string name="text_setting_customization">Настройки</string>
+
 </resources>
