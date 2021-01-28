@@ -22,7 +22,6 @@ class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
         createDrawer()
     }
 
-
     private fun createDrawer() { // бок меню наполнение
         mDrawer = DrawerBuilder()
             .withActivity(mainActivity)
@@ -47,16 +46,26 @@ class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                     .withIcon(R.drawable.ic_coffee),
 
                 PrimaryDrawerItem().withIdentifier(103)
+                    .withName("Тренировка")
+                    .withSelectable(false)
+                    .withIcon(R.drawable.ic_go),
+
+                PrimaryDrawerItem().withIdentifier(104)
+                    .withName("Таймер тренировки")
+                    .withSelectable(false)
+                    .withIcon(R.drawable.ic_time),
+
+                PrimaryDrawerItem().withIdentifier(105)
                     .withName("Данные о тренировке")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_notepad),
 
-                PrimaryDrawerItem().withIdentifier(104)
+                PrimaryDrawerItem().withIdentifier(106)
                     .withName("Статистика")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_graph),
 
-                PrimaryDrawerItem().withIdentifier(105)
+                PrimaryDrawerItem().withIdentifier(107)
                     .withName("Полезная информация")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_info),
