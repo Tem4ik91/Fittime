@@ -59,34 +59,24 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_number_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/setting_text_account">
+        app:layout_constraintTop_toBottomOf="@id/setting_text_account"
+        style="@style/settingsButtons">
 
         <TextView
             android:id="@+id/setting_phone_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/text_setting_phone_default"
-            android:textSize="@dimen/normalText"
-            android:textColor="@color/black"
-            android:layout_marginStart="@dimen/horizontal_margin"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_number_phone"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/normalText">
         </TextView>
         <TextView
             android:id="@+id/setting_label_phone_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/settings_label_phone_number"
-            android:textSize="@dimen/smallText"
-            android:textColor="@color/grey"
-            android:layout_marginStart="@dimen/horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/setting_phone_number"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/smallText">
         </TextView>
 
 
