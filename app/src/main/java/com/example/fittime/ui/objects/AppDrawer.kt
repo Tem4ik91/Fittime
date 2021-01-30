@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.fittime.R
 import com.example.fittime.ui.Fragment.ProfileFragment
+import com.example.fittime.utlits.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -76,9 +77,7 @@ class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     when (position) {
-                        1 -> mainActivity.supportFragmentManager.beginTransaction()
-                            .addToBackStack(null)
-                            .replace(R.id.dataContainer, ProfileFragment()).commit()
+                        1 -> mainActivity.replaceFragment(ProfileFragment())
                     }
                     return false
                 }

@@ -8,6 +8,8 @@ import com.example.fittime.activites.RegisterActivity
 import com.example.fittime.databinding.ActivityMainBinding
 import com.example.fittime.ui.Fragment.HomeFragment
 import com.example.fittime.ui.objects.AppDrawer
+import com.example.fittime.utlits.replaceActivity
+import com.example.fittime.utlits.replaceFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,15 +35,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
 
-        if(false){
+        if(false){                                                   //проверка на авторизацию
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.dataContainer, HomeFragment()).commit()
+           replaceFragment(HomeFragment())
         }
         else{
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            replaceActivity(RegisterActivity())
+
         }
 
 
