@@ -8,17 +8,10 @@
 
     <EditText
         android:id="@+id/register_input_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/horizontal_margin"
-        android:autofillHints=""
-        android:inputType="phone"
-        android:padding="@dimen/appPadding"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normalText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/editText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/register_btn_next"
@@ -28,7 +21,8 @@
         android:backgroundTint="@color/mybuc"
         android:src="@drawable/ic_btn_next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="TODO">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
