@@ -30,5 +30,6 @@
 
 
     <string name="text_setting_customization">Настройки</string>
+    <string name="settings_menu_exit">Выход</string>
 
 </resources>
