@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
 
-        if(false){                                                   //проверка на авторизацию
+        if(true){                                                   //проверка на авторизацию
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
            replaceFragment(HomeFragment())
