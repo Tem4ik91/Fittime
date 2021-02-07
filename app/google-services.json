@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620366296213",
+    "project_id": "fittime-4e71e",
+    "storage_bucket": "fittime-4e71e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620366296213:android:419a079602fc597afad79c",
+        "android_client_info": {
+          "package_name": "com.example.fittime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620366296213-9dshkf1e24a0pim1h5gr1lgb7fq5f78k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIjWulJyttg3E2GwAdMVMdqGrqltlgMXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620366296213-9dshkf1e24a0pim1h5gr1lgb7fq5f78k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
