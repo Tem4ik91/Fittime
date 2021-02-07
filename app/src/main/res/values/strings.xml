@@ -6,7 +6,7 @@
 
     <string name="setting_text_account">Аккаунт</string>
     <string name="text_setting_phone_default">+79156478143</string>
-    <string name="settings_label_phone_number">Нажмите, чтобы изменить аккаунт</string>
+    <string name="settings_label_phone_number">Нажмите, чтобы изменить данные аккаунта</string>
 
     <!--Блок О себе-->
     <string name="text_setting_about_me">О себе</string>
@@ -37,5 +37,6 @@
     <string name="register_title_your_phone">Ваш телефон</string>
     <string name="register_toast_enter_phone">Введите номер телефона</string>
     <string name="register_phone_hint">+- --- --- ----</string>
+    <string name="setting_menu_change_name">Изменить</string>
 
 </resources>
