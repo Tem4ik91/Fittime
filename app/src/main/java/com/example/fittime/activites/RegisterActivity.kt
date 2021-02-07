@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.fittime.R
 import com.example.fittime.databinding.ActivityRegisterBinding
 import com.example.fittime.ui.Fragment.EnterPhoneNumberFragment
+import com.example.fittime.utlits.initFirebase
 import com.example.fittime.utlits.replaceFragment
 
 class RegisterActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
+        initFirebase()
     }
 
     override fun onStart() {

@@ -9,6 +9,7 @@ import com.example.fittime.databinding.ActivityMainBinding
 import com.example.fittime.ui.Fragment.HomeFragment
 import com.example.fittime.ui.objects.AppDrawer
 import com.example.fittime.utlits.AUTH
+import com.example.fittime.utlits.initFirebase
 import com.example.fittime.utlits.replaceActivity
 import com.example.fittime.utlits.replaceFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -21,12 +22,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mToolbar: Toolbar
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater) //test c26586465
         setContentView(mBinding.root)
-
     }
 
     override fun onStart() {
@@ -35,9 +34,7 @@ class MainActivity : AppCompatActivity() {
         initFunc()
     }
 
-
     private fun initFunc() {
-
         if(AUTH.currentUser!=null){                                                   //проверка на авторизацию
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
@@ -46,18 +43,12 @@ class MainActivity : AppCompatActivity() {
         else{
             replaceActivity(RegisterActivity())
         }
-
-
-
     }
 
 
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
-        AUTH = FirebaseAuth.getInstance()
+        initFirebase()
     }
-
-
-
 }
