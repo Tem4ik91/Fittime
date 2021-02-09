@@ -38,5 +38,12 @@
     <string name="register_toast_enter_phone">Введите номер телефона</string>
     <string name="register_phone_hint">+- --- --- ----</string>
     <string name="setting_menu_change_name">Изменить</string>
+    <string name="Settings_hint_input_name">Имя</string>
+    <string name="settings_hint_input_surname">Фамилия</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
 </resources>

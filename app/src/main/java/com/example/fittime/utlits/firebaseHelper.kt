@@ -13,6 +13,7 @@ const val CHILD_PHONE = "phone"
 const val CHILD_USERNAME = "username"
 
 
+
 fun initFirebase(){                                                        //инициализация подключения к БД
     AUTH = FirebaseAuth.getInstance()
     REF_DATABASE_ROOT = FirebaseDatabase.getInstance().reference            // рутовая ссылка на БД
