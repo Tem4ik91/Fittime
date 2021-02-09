@@ -26,7 +26,8 @@
             android:layout_height="@dimen/settings_user_photo_height"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginBottom="@dimen/horizontal_margin"
-            android:src="@drawable/ic_profile"
+            android:src="@drawable/ic_add_account"
+            app:civ_circle_background_color="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +105,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_sex"
-        style="@style/settingsButtons"
+        style="@style/TextString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/setting_text_about_me">
@@ -124,18 +125,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_sex" />
 
-        <TextView
-            android:id="@+id/setting_label_sex"
-            style="@style/smallText"
-            android:text="@string/settings_label_sex"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_text_sex"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_birthday"
-        style="@style/settingsButtons"
+        style="@style/TextString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_btn_change_sex">
@@ -155,18 +149,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_birthday" />
 
-        <TextView
-            android:id="@+id/setting_label_birthday"
-            style="@style/smallText"
-            android:text="@string/settings_label_birthday"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_text_birthday"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_growth"
-        style="@style/settingsButtons"
+        style="@style/TextString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_btn_change_birthday">
@@ -186,18 +174,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_growth" />
 
-        <TextView
-            android:id="@+id/setting_label_growth"
-            style="@style/smallText"
-            android:text="@string/settings_label_growth"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_text_growth"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_weight"
-        style="@style/settingsButtons"
+        style="@style/TextString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_btn_change_growth">
@@ -217,18 +199,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_weight" />
 
-        <TextView
-            android:id="@+id/setting_label_weight"
-            style="@style/smallText"
-            android:text="@string/settings_label_weight"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_text_weight"/>
-
         <View
             style="@style/separator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_label_weight" />
+            app:layout_constraintTop_toBottomOf="@id/setting_text_weight" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
