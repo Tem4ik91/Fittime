@@ -5,7 +5,7 @@ import android.provider.ContactsContract
 data class User(
     val id: String = "",
     var username: String = "",
-    var fullname: String = "",
+    var fullname: String = "Name Surname",
     var phone: String = "",
     var sex: String = "",
     var databirth: String = "",

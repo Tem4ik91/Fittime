@@ -6,13 +6,14 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.example.fittime.activites.RegisterActivity
 import com.example.fittime.databinding.ActivityMainBinding
+import com.example.fittime.models.User
 import com.example.fittime.ui.Fragment.HomeFragment
 import com.example.fittime.ui.objects.AppDrawer
-import com.example.fittime.utlits.AUTH
-import com.example.fittime.utlits.initFirebase
-import com.example.fittime.utlits.replaceActivity
-import com.example.fittime.utlits.replaceFragment
+import com.example.fittime.utlits.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 
 class MainActivity : AppCompatActivity() {
@@ -50,5 +51,13 @@ class MainActivity : AppCompatActivity() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
         initFirebase()
+        initUser()
+    }
+
+    private fun initUser() {
+       REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+           .addListenerForSingleValueEvent(AppValueEventListener{
+               USER = it.getValue(User::class.java) ?: User()
+           })
     }
 }

@@ -7,8 +7,10 @@ import com.example.fittime.MainActivity
 import com.example.fittime.R
 import com.example.fittime.activites.RegisterActivity
 import com.example.fittime.utlits.AUTH
+import com.example.fittime.utlits.USER
 import com.example.fittime.utlits.replaceActivity
 import com.example.fittime.utlits.replaceFragment
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
@@ -17,6 +19,17 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     override fun onResume() {
         super.onResume()
         setHasOptionsMenu(true)
+        initFields()
+    }
+
+    private fun initFields() {
+        settings_phone_number.text = USER.phone
+        settings_full_name.text = USER.fullname
+        setting_sex.text = USER.sex
+        setting_birthday.text = USER.databirth
+        setting_growth.text= USER.growth
+        setting_weight.text = USER.weight
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

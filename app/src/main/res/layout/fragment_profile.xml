@@ -33,11 +33,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/settings_full_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginTop="@dimen/large_vertical_margin"
-            android:text="@string/text_name_default"
+            tools:text="@string/text_name_default"
             android:textColor="@color/white"
             android:textSize="@dimen/normalText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,9 +70,9 @@
         app:layout_constraintTop_toBottomOf="@id/setting_text_account">
 
         <TextView
-            android:id="@+id/setting_phone_number"
+            android:id="@+id/settings_phone_number"
             style="@style/normalText"
-            android:text="@string/text_setting_phone_default"
+            tools:text="@string/text_setting_phone_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_number_phone"/>
 
@@ -80,7 +81,7 @@
             style="@style/smallText"
             android:text="@string/settings_label_phone_number"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_phone_number"/>
+            app:layout_constraintTop_toBottomOf="@id/settings_phone_number"/>
 
         <View
             style="@style/separator"
@@ -121,7 +122,7 @@
             android:id="@+id/setting_sex"
             style="@style/normalText"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_sex_defauit"
+            tools:text="@string/text_setting_sex_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_btn_change_sex" />
 
@@ -145,7 +146,7 @@
             android:id="@+id/setting_birthday"
             style="@style/normalText"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_birthday_defauit"
+            tools:text="@string/text_setting_birthday_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_birthday" />
 
@@ -170,7 +171,7 @@
             android:id="@+id/setting_growth"
             style="@style/normalText"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_growth_defauit"
+            tools:text="@string/text_setting_growth_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_growth" />
 
@@ -195,7 +196,7 @@
             android:id="@+id/setting_weight"
             style="@style/normalText"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_weight_defauit"
+            tools:text="@string/text_setting_weight_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_weight" />
 
