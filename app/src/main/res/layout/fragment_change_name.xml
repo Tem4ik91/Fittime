@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.Fragment.ChangeNameFragment">
 
+
+
     <EditText
         android:id="@+id/settings_input_name"
         style="@style/editText"
         android:inputType="text"
+        android:padding="0dp"
         android:hint="@string/Settings_hint_input_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,85 +20,184 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        style="@style/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_input_name" />
+
     <EditText
         android:id="@+id/settings_input_surname"
         style="@style/editText"
         android:inputType="text"
         android:hint="@string/settings_hint_input_surname"
+        android:padding="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_input_name" />
 
-    <TextView
-        android:id="@+id/setting_text_sex"
-        style="@style/normalText"
-        android:text="@string/text_setting_sex"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginVertical="@dimen/large_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@id/settings_input_surname"/>
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        style="@style/normalText"
-        android:inputType="text"
-        android:entries="@array/gender"
+    <View
+        android:id="@+id/separator"
+        style="@style/separator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/setting_text_sex"/>
-
-    <TextView
-        android:id="@+id/setting_text_birthday"
-        style="@style/normalText"
-        android:text="@string/text_setting_birthday"
-        android:layout_marginVertical="@dimen/large_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@+id/setting_text_sex"
         app:layout_constraintStart_toStartOf="parent"
-         />
- 
-    <TextView
-        android:id="@+id/setting_birthday"
-        style="@style/normalText"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:text="@string/text_setting_birthday_defauit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/setting_text_birthday" />
+        app:layout_constraintTop_toBottomOf="@id/settings_input_surname" />
 
-    <TextView
-        android:id="@+id/setting_text_growth"
-        style="@style/normalText"
-        android:text="@string/text_setting_growth"
-        android:layout_marginVertical="@dimen/large_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@+id/setting_text_birthday"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_btn_change_sex"
+        style="@style/settingsButtons"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/separator">
 
-    <TextView
-        android:id="@+id/setting_growth"
-        style="@style/normalText"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:text="@string/text_setting_growth_defauit"
+        <TextView
+            android:id="@+id/setting_text_sex"
+            style="@style/normalText"
+            android:text="@string/text_setting_sex"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/settings_btn_change_sex"/>
+
+        <TextView
+            android:id="@+id/setting_label_sex"
+            style="@style/smallText"
+            android:text="@string/settings_label_sex"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_text_sex"/>
+
+        <TextView
+            android:id="@+id/spinner_sex"
+            style="@style/normalText"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:text="@string/text_setting_sex_defauit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/setting_text_sex"/>
+
+        <View
+            style="@style/separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_label_sex" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_btn_change_birthday"
+        style="@style/settingsButtons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/setting_text_growth" />
-
-    <TextView
-        android:id="@+id/setting_text_weight"
-        style="@style/normalText"
-        android:text="@string/text_setting_weight"
-        android:layout_marginVertical="@dimen/large_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@+id/setting_text_growth"
         app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_sex">
 
-    <TextView
-        android:id="@+id/setting_weight"
-        style="@style/normalText"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:text="@string/text_setting_weight_defauit"
+        <TextView
+            android:id="@+id/setting_text_birthday"
+            style="@style/normalText"
+            android:text="@string/text_setting_birthday"
+            app:layout_constraintTop_toTopOf="@+id/settings_btn_change_birthday"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/setting_label_birthday"
+            style="@style/smallText"
+            android:text="@string/settings_label_birthday"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_text_birthday"/>
+
+        <TextView
+            android:id="@+id/setting_birthday"
+            style="@style/normalText"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:text="@string/text_setting_birthday_defauit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/setting_text_birthday" />
+
+        <View
+            style="@style/separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_label_birthday" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_btn_change_growth"
+        style="@style/settingsButtons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/setting_text_weight" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_birthday">
 
+        <TextView
+            android:id="@+id/setting_text_growth"
+            style="@style/normalText"
+            android:text="@string/text_setting_growth"
+            app:layout_constraintTop_toTopOf="@+id/settings_btn_change_growth"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/setting_label_growth"
+            style="@style/smallText"
+            android:text="@string/settings_label_growth"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_text_growth"/>
+
+        <TextView
+            android:id="@+id/setting_growth"
+            style="@style/normalText"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:text="@string/text_setting_growth_defauit"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            app:layout_constraintTop_toTopOf="@+id/setting_text_growth" />
+
+        <View
+            style="@style/separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_label_growth" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_btn_change_weight"
+        style="@style/settingsButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_growth">
+
+        <TextView
+            android:id="@+id/setting_text_weight"
+            style="@style/normalText"
+            android:text="@string/text_setting_weight"
+            app:layout_constraintTop_toTopOf="@+id/settings_btn_change_weight"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/setting_label_weight"
+            style="@style/smallText"
+            android:text="@string/settings_label_weight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_text_weight"/>
+
+        <TextView
+            android:id="@+id/setting_weight"
+            style="@style/normalText"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:text="@string/text_setting_weight_defauit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/setting_text_weight" />
+
+        <View
+            style="@style/separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_label_weight" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

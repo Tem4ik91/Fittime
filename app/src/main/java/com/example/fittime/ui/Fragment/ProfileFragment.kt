@@ -8,6 +8,7 @@ import com.example.fittime.R
 import com.example.fittime.activites.RegisterActivity
 import com.example.fittime.utlits.AUTH
 import com.example.fittime.utlits.replaceActivity
+import com.example.fittime.utlits.replaceFragment
 
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
@@ -24,10 +25,11 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.setting_menu_exit -> {
+            R.id.settings_menu_exit -> {
                 AUTH.signOut()
                 (activity as MainActivity).replaceActivity(RegisterActivity())
             }
+            R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
         return true
     }
