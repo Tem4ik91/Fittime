@@ -22,6 +22,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     override fun onResume() {
         super.onResume()
         settings_input_username.setText(USER.username)
+        setting_birthday.setText(USER.databirth)
         initFullnameList()
 
         dateOfBirth()
@@ -99,6 +100,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                 .setValue(databirth).addOnCompleteListener {
                     if (it.isSuccessful){
                         showToast(getString(R.string.toast_data_update))
+                        USER.databirth = databirth
                     }
                 }
 
