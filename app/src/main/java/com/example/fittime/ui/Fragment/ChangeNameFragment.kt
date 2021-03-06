@@ -1,27 +1,60 @@
 package com.example.fittime.ui.Fragment
 
+import android.app.DatePickerDialog
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.fittime.MainActivity
 import com.example.fittime.R
 import com.example.fittime.models.User
 import com.example.fittime.utlits.*
 import kotlinx.android.synthetic.main.fragment_change_name.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
 class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
     lateinit var mNewUsername: String
+    lateinit var databirth: String
+
 
     override fun onResume() {
         super.onResume()
-
         settings_input_username.setText(USER.username)
-
         initFullnameList()
 
+        dateOfBirth()
+
     }
+
+    private fun dateOfBirth() {
+
+        var fomate = SimpleDateFormat("dd.MM.yyyy")
+
+        settings_btn_change_birthday.setOnClickListener {
+            val now = Calendar.getInstance()
+
+             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {                        // если дроид выше 7
+                val datePickerDialog =  DatePickerDialog( this.activity!! , DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    val selectedDate = Calendar.getInstance()
+                    selectedDate.set(Calendar.YEAR, year)
+                    selectedDate.set(Calendar.MONTH, month)
+                    selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    val date = fomate.format(selectedDate.time)
+                    showToast(date)
+                    setting_birthday.text = date.toString()
+                },
+                    now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)
+                )
+                 datePickerDialog.show()
+            } else {
+
+            }
+
+        }
+    }
+
 
     private fun initFullnameList() {
         val fullnameList = USER.fullname.split(" ")
@@ -35,7 +68,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     override fun change() {
 
         mNewUsername = settings_input_username.text.toString().toLowerCase(Locale.getDefault())
-
+        databirth = setting_birthday.text.toString()
 
 
         val name = settings_input_name.text.toString()
@@ -52,17 +85,27 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     }
                 })
 
-
             val fullname = "$name $surname"
             REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_FULLNAME)
                 .setValue(fullname).addOnCompleteListener {
                     if (it.isSuccessful){
                         showToast(getString(R.string.toast_data_update))
                         USER.fullname = fullname
-                      //  fragmentManager?.popBackStack()
+                       // fragmentManager?.popBackStack()
                     }
                 }
+
+            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_DATABIRTH)
+                .setValue(databirth).addOnCompleteListener {
+                    if (it.isSuccessful){
+                        showToast(getString(R.string.toast_data_update))
+                    }
+                }
+
         }
+
+
+
 
     }
 
@@ -71,7 +114,6 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     updateCurrentUsername()
-
                 }
             }
     }
@@ -85,7 +127,6 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                 }else{
                     showToast(it.exception?.message.toString())
                 }
-
             }
     }
 
@@ -100,5 +141,9 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                 }
             }
     }
+
+
+
+
 }
 

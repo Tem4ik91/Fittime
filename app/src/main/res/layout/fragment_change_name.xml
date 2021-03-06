@@ -66,6 +66,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_sex"
         style="@style/settingsButtons"
+        android:layout_marginVertical="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/separator">
@@ -104,6 +105,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_birthday"
         style="@style/settingsButtons"
+        android:layout_marginVertical="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/settings_btn_change_sex">
@@ -128,7 +130,7 @@
             style="@style/normalText"
             android:layout_marginVertical="@dimen/vertical_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_birthday_defauit"
+            tools:text="@string/text_setting_birthday_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_birthday" />
 
@@ -143,6 +145,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_growth"
         style="@style/settingsButtons"
+        android:layout_marginVertical="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/settings_btn_change_birthday">
@@ -182,6 +185,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_btn_change_weight"
         style="@style/settingsButtons"
+        android:layout_marginVertical="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/settings_btn_change_growth">

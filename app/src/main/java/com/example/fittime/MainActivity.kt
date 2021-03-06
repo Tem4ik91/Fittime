@@ -1,5 +1,6 @@
 package com.example.fittime
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.fragment_change_name.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater) //test c26586465
         setContentView(mBinding.root)
+
+
     }
+
 
     override fun onStart() {
         super.onStart()
