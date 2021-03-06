@@ -14,11 +14,11 @@ open class BaseFragment(layout: Int) : Fragment(layout) {
 
     override fun onStart() {
         super.onStart()
-        (activity as MainActivity).mAppDrawer.disableDrawer()
+        (activity as MainActivity).mAppDrawer.disableDrawer()    //отключение бок меню
     }
 
     override fun onStop() {
         super.onStop()
-        (activity as MainActivity).mAppDrawer.enableDrawer()
+        (activity as MainActivity).mAppDrawer.enableDrawer()       //вкл бок меню
     }
 }

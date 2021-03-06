@@ -30,6 +30,7 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         setting_growth.text= USER.growth
         setting_weight.text = USER.weight
 
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
