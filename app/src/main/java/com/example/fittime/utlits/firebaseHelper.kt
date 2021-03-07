@@ -18,7 +18,7 @@ const val CHILD_USERNAME = "username"
 const val CHILD_FULLNAME = "fullname"
 const val CHILD_DATABIRTH = "databirth"
 const val CHILD_SEX = "sex"
-
+const val CHILD_GROWTH="growth"
 
 
 fun initFirebase(){                                                        //инициализация подключения к БД

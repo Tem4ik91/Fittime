@@ -2,7 +2,9 @@ package com.example.fittime.ui.Fragment
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.text.InputType
 import android.view.*
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -10,7 +12,9 @@ import com.example.fittime.MainActivity
 import com.example.fittime.R
 import com.example.fittime.models.User
 import com.example.fittime.utlits.*
+import com.mikepenz.iconics.Iconics
 import kotlinx.android.synthetic.main.fragment_change_name.*
+import java.nio.file.attribute.AclEntry
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,6 +24,8 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     lateinit var mNewUsername: String
     lateinit var databirth: String
     lateinit var sex: String
+    lateinit var growth: String
+
 
 
     override fun onResume() {
@@ -27,12 +33,38 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
         settings_input_username.setText(USER.username)
         setting_birthday.setText(USER.databirth)
         setting_sex.setText(USER.sex)
+        setting_growth.setText(USER.growth)
+
+
         initFullnameList()
-
         dateOfBirth()
-
         dialogSex()
+        dialogGrowth()
 
+    }
+
+    private fun dialogGrowth() {
+        settings_btn_change_growth.setOnClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+
+            val inflater = layoutInflater
+            val editgrowth = inflater.inflate(R.layout.edit_text_layout, null)
+            val editText = editgrowth.findViewById<EditText>(R.id.edit_text)
+
+            with(growthDialog){
+                setTitle("Введите ваш рост")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_growth.text = editText.text
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.setView(editgrowth)
+            growthDialog.show()
+
+        }
     }
 
     private fun dialogSex() {
@@ -93,6 +125,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
         mNewUsername = settings_input_username.text.toString().toLowerCase(Locale.getDefault())
         databirth = setting_birthday.text.toString()
         sex = setting_sex.text.toString()
+        growth = setting_growth.text.toString()
 
 
         val name = settings_input_name.text.toString()
@@ -131,6 +164,12 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                 .setValue(sex).addOnCompleteListener {
                     if (it.isSuccessful){
                         USER.sex = sex
+                    }
+                }
+            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_GROWTH)
+                .setValue(growth).addOnCompleteListener {
+                    if(it.isSuccessful){
+                        USER.growth = growth
                     }
                 }
 
