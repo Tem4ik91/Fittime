@@ -6,9 +6,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 lateinit var AUTH: FirebaseAuth
-lateinit var UID:String
+lateinit var UID: String
 lateinit var REF_DATABASE_ROOT: DatabaseReference
-lateinit var USER:User
+lateinit var USER: User
 
 const val NODE_USERS = "users"
 const val NODE_USERNAMES = "usernames"
@@ -18,10 +18,11 @@ const val CHILD_USERNAME = "username"
 const val CHILD_FULLNAME = "fullname"
 const val CHILD_DATABIRTH = "databirth"
 const val CHILD_SEX = "sex"
-const val CHILD_GROWTH="growth"
+const val CHILD_GROWTH = "growth"
+const val CHILD_WEIGHT = "weight"
 
 
-fun initFirebase(){                                                        //инициализация подключения к БД
+fun initFirebase() {                                                        //инициализация подключения к БД
     AUTH = FirebaseAuth.getInstance()
     REF_DATABASE_ROOT = FirebaseDatabase.getInstance().reference            // рутовая ссылка на БД
     USER = User()

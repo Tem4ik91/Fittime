@@ -25,6 +25,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     lateinit var databirth: String
     lateinit var sex: String
     lateinit var growth: String
+    lateinit var weight: String
 
 
 
@@ -34,13 +35,38 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
         setting_birthday.setText(USER.databirth)
         setting_sex.setText(USER.sex)
         setting_growth.setText(USER.growth)
+        setting_weight.setText(USER.weight)
 
 
         initFullnameList()
         dateOfBirth()
         dialogSex()
         dialogGrowth()
+        dialogweight()
 
+    }
+
+    private fun dialogweight() {
+        settings_btn_change_weight.setOnClickListener {
+            val weightDialog = AlertDialog.Builder(this.activity)
+
+            val inflater = layoutInflater
+            val editweight = inflater.inflate(R.layout.edit_text_layout, null)
+            val editText = editweight.findViewById<EditText>(R.id.edit_text)
+
+            with(weightDialog){
+                setTitle("Введите ваш вес")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_weight.text = editText.text
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            weightDialog.setView(editweight)
+            weightDialog.show()
+        }
     }
 
     private fun dialogGrowth() {
@@ -126,6 +152,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
         databirth = setting_birthday.text.toString()
         sex = setting_sex.text.toString()
         growth = setting_growth.text.toString()
+        weight = setting_weight.text.toString()
 
 
         val name = settings_input_name.text.toString()
@@ -170,6 +197,12 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                 .setValue(growth).addOnCompleteListener {
                     if(it.isSuccessful){
                         USER.growth = growth
+                    }
+                }
+            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_WEIGHT)
+                .setValue(weight).addOnCompleteListener {
+                    if (it.isSuccessful){
+                        USER.weight = weight
                     }
                 }
 
