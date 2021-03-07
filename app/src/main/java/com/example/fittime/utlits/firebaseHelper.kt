@@ -17,6 +17,7 @@ const val CHILD_PHONE = "phone"
 const val CHILD_USERNAME = "username"
 const val CHILD_FULLNAME = "fullname"
 const val CHILD_DATABIRTH = "databirth"
+const val CHILD_SEX = "sex"
 
 
 

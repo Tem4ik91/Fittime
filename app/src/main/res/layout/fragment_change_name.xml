@@ -86,11 +86,11 @@
             app:layout_constraintTop_toBottomOf="@id/setting_text_sex"/>
 
         <TextView
-            android:id="@+id/spinner_sex"
+            android:id="@+id/setting_sex"
             style="@style/normalText"
             android:layout_marginVertical="@dimen/vertical_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_sex_defauit"
+            tools:text="@string/text_setting_sex_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_sex"/>
 
@@ -169,7 +169,7 @@
             android:id="@+id/setting_growth"
             style="@style/normalText"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_growth_defauit"
+            tools:text="@string/text_setting_growth_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginVertical="@dimen/vertical_margin"
             app:layout_constraintTop_toTopOf="@+id/setting_text_growth" />
@@ -210,7 +210,7 @@
             style="@style/normalText"
             android:layout_marginVertical="@dimen/vertical_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/text_setting_weight_defauit"
+            tools:text="@string/text_setting_weight_defauit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/setting_text_weight" />
 

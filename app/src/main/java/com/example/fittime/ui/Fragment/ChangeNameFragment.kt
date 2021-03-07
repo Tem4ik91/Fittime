@@ -1,8 +1,10 @@
 package com.example.fittime.ui.Fragment
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.view.*
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.example.fittime.MainActivity
 import com.example.fittime.R
@@ -17,17 +19,37 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
     lateinit var mNewUsername: String
     lateinit var databirth: String
+    lateinit var sex: String
 
 
     override fun onResume() {
         super.onResume()
         settings_input_username.setText(USER.username)
         setting_birthday.setText(USER.databirth)
+        setting_sex.setText(USER.sex)
         initFullnameList()
 
         dateOfBirth()
 
+        dialogSex()
+
     }
+
+    private fun dialogSex() {
+        settings_btn_change_sex.setOnClickListener {
+            val sexDialog = AlertDialog.Builder(this.activity)
+
+            val listSex = arrayOf("Муж", "Жен")
+
+            sexDialog.setItems(listSex){dialog, item ->
+                showToast(listSex[item])
+                setting_sex.text = listSex[item]
+                dialog.dismiss()
+            }
+            sexDialog.show()
+        }
+    }
+
 
     private fun dateOfBirth() {
 
@@ -70,6 +92,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
         mNewUsername = settings_input_username.text.toString().toLowerCase(Locale.getDefault())
         databirth = setting_birthday.text.toString()
+        sex = setting_sex.text.toString()
 
 
         val name = settings_input_name.text.toString()
@@ -101,6 +124,13 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     if (it.isSuccessful){
                         showToast(getString(R.string.toast_data_update))
                         USER.databirth = databirth
+                    }
+                }
+
+            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_SEX)
+                .setValue(sex).addOnCompleteListener {
+                    if (it.isSuccessful){
+                        USER.sex = sex
                     }
                 }
 
