@@ -31,7 +31,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
     override fun onResume() {
         super.onResume()
-        settings_input_username.setText(USER.username)
+        settings_input_username.setText(USER.username) //123
         setting_birthday.setText(USER.databirth)
         setting_sex.setText(USER.sex)
         setting_growth.setText(USER.growth)

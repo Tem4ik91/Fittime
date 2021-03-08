@@ -19,11 +19,11 @@
     <string name="text_setting_birthday_defauit">28.03.1991</string>
     <string name="settings_label_birthday">Нажмите, чтобы указать вашу дату рождения</string>
 
-    <string name="text_setting_growth">Ваш рост</string>
+    <string name="text_setting_growth">Ваш рост, см</string>
     <string name="text_setting_growth_defauit">174см</string>
     <string name="settings_label_growth">Нажмите, чтобы указать ваш рост</string>
 
-    <string name="text_setting_weight">Ваш вес</string>
+    <string name="text_setting_weight">Ваш вес, кг</string>
     <string name="text_setting_weight_defauit">72 кг</string>
     <string name="settings_label_weight">Нажмите, чтобы указать ваш вес</string>
 
