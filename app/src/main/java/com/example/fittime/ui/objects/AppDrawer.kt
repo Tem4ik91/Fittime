@@ -23,20 +23,20 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 
-class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
+class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     private lateinit var mHeader: AccountHeader
     private lateinit var mDrawer: Drawer
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var mCurrentProfile: ProfileDrawerItem
 
-    fun create(){
+    fun create() {
         initLoader()
         createHeader()
         createDrawer()
         mDrawerLayout = mDrawer.drawerLayout
     }
 
-    fun disableDrawer(){                                                                    // отключить гамбургер
+    fun disableDrawer() {                                                                    // отключить гамбургер
         mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false
         mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
@@ -45,7 +45,7 @@ class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
         }
     }
 
-    fun enableDrawer(){
+    fun enableDrawer() {
         mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = true
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
@@ -129,7 +129,7 @@ class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
             ).build()
     }
 
-    fun updateHeader(){
+    fun updateHeader() {
         mCurrentProfile
             .withName(USER.username)
             .withEmail(USER.phone)
@@ -138,8 +138,8 @@ class AppDrawer ( val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
         mHeader.updateProfile(mCurrentProfile)
     }
 
-    private fun initLoader(){
-        DrawerImageLoader.init(object :AbstractDrawerImageLoader(){
+    private fun initLoader() {
+        DrawerImageLoader.init(object : AbstractDrawerImageLoader() {
             override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable) {
                 imageView.downloadAndSetImage(uri.toString())
 

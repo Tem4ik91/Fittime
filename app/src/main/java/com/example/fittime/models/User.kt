@@ -11,7 +11,7 @@ data class User(
     var databirth: String = "",
     var growth: String = "",
     var weight: String = "",
-    var photoUrl: String = ""
+    var photoUrl: String = "empty"
 
 
 )
