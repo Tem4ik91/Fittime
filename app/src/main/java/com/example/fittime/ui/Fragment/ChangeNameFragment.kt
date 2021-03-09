@@ -2,19 +2,10 @@ package com.example.fittime.ui.Fragment
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.text.InputType
-import android.view.*
 import android.widget.EditText
-import android.widget.Toast
-import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
-import com.example.fittime.MainActivity
 import com.example.fittime.R
-import com.example.fittime.models.User
 import com.example.fittime.utlits.*
-import com.mikepenz.iconics.Iconics
 import kotlinx.android.synthetic.main.fragment_change_name.*
-import java.nio.file.attribute.AclEntry
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -170,7 +161,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                 })
 
             val fullname = "$name $surname"
-            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_FULLNAME)
+            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_FULLNAME)
                 .setValue(fullname).addOnCompleteListener {
                     if (it.isSuccessful){
                         showToast(getString(R.string.toast_data_update))
@@ -179,7 +170,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     }
                 }
 
-            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_DATABIRTH)
+            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_DATABIRTH)
                 .setValue(databirth).addOnCompleteListener {
                     if (it.isSuccessful){
                         showToast(getString(R.string.toast_data_update))
@@ -187,19 +178,19 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     }
                 }
 
-            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_SEX)
+            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_SEX)
                 .setValue(sex).addOnCompleteListener {
                     if (it.isSuccessful){
                         USER.sex = sex
                     }
                 }
-            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_GROWTH)
+            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_GROWTH)
                 .setValue(growth).addOnCompleteListener {
                     if(it.isSuccessful){
                         USER.growth = growth
                     }
                 }
-            REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_WEIGHT)
+            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_WEIGHT)
                 .setValue(weight).addOnCompleteListener {
                     if (it.isSuccessful){
                         USER.weight = weight
@@ -214,7 +205,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     }
 
     private fun changeUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(UID)
+        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(CURRENT_UID)
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     updateCurrentUsername()
@@ -223,7 +214,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     }
 
     private fun updateCurrentUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_USERNAME).setValue(mNewUsername)
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_USERNAME).setValue(mNewUsername)
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     showToast(getString(R.string.toast_data_update))

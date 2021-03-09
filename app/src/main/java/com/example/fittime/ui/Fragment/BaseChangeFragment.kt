@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment
 import android.widget.RelativeLayout
 import com.example.fittime.MainActivity
 import com.example.fittime.R
+import com.example.fittime.utlits.APP_ACTIVITY
+import com.example.fittime.utlits.hideKeyboard
 
 
- open class BaseChangeFragment(layout: Int) : Fragment(layout) {
+open class BaseChangeFragment(layout: Int) : Fragment(layout) {
 
     override fun onStart() {
         super.onStart()
         setHasOptionsMenu(true)
-        (activity as MainActivity).mAppDrawer.disableDrawer()
+        APP_ACTIVITY.mAppDrawer.disableDrawer()
+        hideKeyboard()
     }
 
     override fun onStop() {

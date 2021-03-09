@@ -8,17 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fittime.MainActivity
 import com.example.fittime.R
+import com.example.fittime.utlits.APP_ACTIVITY
 
 
 open class BaseFragment(layout: Int) : Fragment(layout) {
 
     override fun onStart() {
         super.onStart()
-        (activity as MainActivity).mAppDrawer.disableDrawer()    //отключение бок меню
+        APP_ACTIVITY.mAppDrawer.disableDrawer()    //отключение бок меню
     }
 
     override fun onStop() {
         super.onStop()
-        (activity as MainActivity).mAppDrawer.enableDrawer()       //вкл бок меню
+        APP_ACTIVITY.mAppDrawer.enableDrawer()       //вкл бок меню
     }
 }
