@@ -2,15 +2,12 @@ package com.example.fittime.ui.Fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.fittime.R
 import com.example.fittime.activites.RegisterActivity
 import com.example.fittime.utlits.*
-import com.google.firebase.storage.StorageReference
-import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -35,7 +32,7 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
         settings_change_photo.setOnClickListener { changePhotoUser() }
 
-        settings_profile_image.donwloadAndSetImage(USER.photoUrl)
+        settings_profile_image.downloadAndSetImage(USER.photoUrl)
 
 
     }
@@ -76,9 +73,10 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
             putImageToStorage(uri, path){
                 getUrlFromStorage(path){
                     putUrlToDatabase(it){
-                        settings_profile_image.donwloadAndSetImage(it)
+                        settings_profile_image.downloadAndSetImage(it)
                         showToast(getString(R.string.toast_data_update))
                         USER.photoUrl = it
+                        APP_ACTIVITY.mAppDrawer.updateHeader()
                     }
                 }
             }

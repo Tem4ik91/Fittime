@@ -156,48 +156,60 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     if (it.hasChild(mNewUsername)){
                         showToast("Такой пользователь уже существует")
                     } else {
+
                         changeUsername()
+
+
+
+                        val fullname = "$name $surname"
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_FULLNAME)
+                            .setValue(fullname).addOnCompleteListener {
+                                if (it.isSuccessful){
+//                                    showToast(getString(R.string.toast_data_update))
+                                    USER.fullname = fullname
+
+                                    //fragmentManager?.popBackStack()
+                                }
+                            }
+
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_DATABIRTH)
+                            .setValue(databirth).addOnCompleteListener {
+                                if (it.isSuccessful){
+//                                    showToast(getString(R.string.toast_data_update))
+                                    USER.databirth = databirth
+                                }
+                            }
+
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_SEX)
+                            .setValue(sex).addOnCompleteListener {
+                                if (it.isSuccessful){
+                                    USER.sex = sex
+                                }
+                            }
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_GROWTH)
+                            .setValue(growth).addOnCompleteListener {
+                                if(it.isSuccessful){
+                                    USER.growth = growth
+                                }
+                            }
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_WEIGHT)
+                            .setValue(weight).addOnCompleteListener {
+                                if (it.isSuccessful){
+                                    USER.weight = weight
+                                }
+                            }
+
+                        showToast(getString(R.string.toast_data_update))
+                        fragmentManager?.popBackStack()
                     }
                 })
 
-            val fullname = "$name $surname"
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_FULLNAME)
-                .setValue(fullname).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        showToast(getString(R.string.toast_data_update))
-                        USER.fullname = fullname
-                       // fragmentManager?.popBackStack()
-                    }
-                }
 
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_DATABIRTH)
-                .setValue(databirth).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        showToast(getString(R.string.toast_data_update))
-                        USER.databirth = databirth
-                    }
-                }
 
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_SEX)
-                .setValue(sex).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        USER.sex = sex
-                    }
-                }
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_GROWTH)
-                .setValue(growth).addOnCompleteListener {
-                    if(it.isSuccessful){
-                        USER.growth = growth
-                    }
-                }
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_WEIGHT)
-                .setValue(weight).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        USER.weight = weight
-                    }
-                }
 
         }
+
+
 
 
 
@@ -209,6 +221,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     updateCurrentUsername()
+                    APP_ACTIVITY.mAppDrawer.updateHeader()
                 }
             }
     }
@@ -217,7 +230,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
         REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_USERNAME).setValue(mNewUsername)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    showToast(getString(R.string.toast_data_update))
+//                    showToast(getString(R.string.toast_data_update))
                     deleteOldUsername()
                 }else{
                     showToast(it.exception?.message.toString())
@@ -229,7 +242,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
         REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.username).removeValue()
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    showToast(getString(R.string.toast_data_update))
+    //                showToast(getString(R.string.toast_data_update))
                     USER.username = mNewUsername
                 }else{
                     showToast(it.exception?.message.toString())
