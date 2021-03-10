@@ -98,7 +98,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                     .withIcon(R.drawable.ic_graph),
 
                 PrimaryDrawerItem().withIdentifier(107)
-                    .withName("Полезная информация")
+                    .withName("Информация")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_info),
             ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
