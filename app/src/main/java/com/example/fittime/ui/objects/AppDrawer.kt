@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AlertDialogLayout
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.fittime.R
+import com.example.fittime.ui.Fragment.CoffeeFragment
 import com.example.fittime.ui.Fragment.ProfileFragment
 import com.example.fittime.utlits.USER
 import com.example.fittime.utlits.downloadAndSetImage
@@ -109,6 +110,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                 ): Boolean {
                     when (position) {
                         1 -> mainActivity.replaceFragment(ProfileFragment())
+                        3 -> mainActivity.replaceFragment(CoffeeFragment())
                     }
                     return false
                 }

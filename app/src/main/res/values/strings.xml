@@ -49,4 +49,6 @@
         <item>Female</item>
     </string-array>
 
+    <string name="text_alarm">Время обеда</string>
+
 </resources>

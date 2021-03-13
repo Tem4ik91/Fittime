@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setting_alarm"
+        style="@style/normalText"
+        android:layout_marginVertical="@dimen/vertical_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:textColor="@color/mybuc"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="7:00" />
+
