@@ -33,6 +33,7 @@
         android:divider="@color/grey"
         android:dividerHeight="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/horizontal_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf = "@+id/setting_text_alarm"/>
 

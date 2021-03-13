@@ -13,6 +13,7 @@ import android.content.Intent
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.fittime.utlits.APP_ACTIVITY
+import com.mikepenz.iconics.utils.toIconicsSizeDp
 import kotlinx.android.synthetic.main.fragment_coffee.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.list_item.*
@@ -30,9 +31,17 @@ lateinit var textt : String
         super.onResume()
 
         startAlarm()
-
+      //  df()
     }
 
+    private fun df() {
+        alarm_list.setOnItemClickListener { _, _, position, _ ->
+            arrayList.remove(arrayList[position])
+
+        }
+    }
+
+    val intent = Intent(AlarmClock.ACTION_SET_ALARM)
     var arrayList = arrayListOf<String>()
     private fun startAlarm() {
 
@@ -48,45 +57,40 @@ lateinit var textt : String
                 alarm.set(Calendar.MINUTE, minute)
                 textt = SimpleDateFormat("HH:mm").format(alarm.time)
 
-                listDinamikAlarm()
-                arrayList.add(0, textt)
-            }
 
+                arrayList.add(0, textt)
+                listDinamikAlarm()
+
+              //  val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, "")
+                intent.putExtra(AlarmClock.EXTRA_HOUR, hour )
+                intent.putExtra(AlarmClock.EXTRA_MINUTES, minute)
+
+                startActivity(intent)
+            }
             TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY),alarm.get(Calendar.MINUTE), true).show()
 
 
 
         }
 
+
     }
+
+
 
 
     private fun listDinamikAlarm() {
 
-        val adapter =  ArrayAdapter<String>(APP_ACTIVITY, R.layout.list_item, arrayList)
+        val adapter =  ArrayAdapter<String>(APP_ACTIVITY, R.layout.list_item, R.id.setting_alarm, arrayList)
         alarm_list.adapter = adapter
+
+        alarm_list.setOnItemClickListener { _, _, position, _ ->
+            adapter.remove(arrayList[position])
+
+
+        }
 
 
     }
 }
-
-
-
-/*  val now = Calendar.getInstance()
-
-             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {                        // если дроид выше 7
-                val datePickerDialog =  DatePickerDialog( this.activity!! , DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    val selectedDate = Calendar.getInstance()
-                    selectedDate.set(Calendar.YEAR, year)
-                    selectedDate.set(Calendar.MONTH, month)
-                    selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    val date = fomate.format(selectedDate.time)
-                    showToast(date)
-                    setting_birthday.text = date.toString()
-                },
-                    now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)
-                )
-                 datePickerDialog.show()
-            } else {
-
-            }*/
