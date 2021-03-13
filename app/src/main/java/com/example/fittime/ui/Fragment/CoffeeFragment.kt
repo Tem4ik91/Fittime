@@ -31,17 +31,11 @@ lateinit var textt : String
         super.onResume()
 
         startAlarm()
-      //  df()
+
     }
 
-    private fun df() {
-        alarm_list.setOnItemClickListener { _, _, position, _ ->
-            arrayList.remove(arrayList[position])
 
-        }
-    }
 
-    val intent = Intent(AlarmClock.ACTION_SET_ALARM)
     var arrayList = arrayListOf<String>()
     private fun startAlarm() {
 
@@ -60,8 +54,9 @@ lateinit var textt : String
 
                 arrayList.add(0, textt)
                 listDinamikAlarm()
+                
 
-              //  val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+                val intent = Intent(AlarmClock.ACTION_SET_ALARM)
                 intent.putExtra(AlarmClock.EXTRA_MESSAGE, "")
                 intent.putExtra(AlarmClock.EXTRA_HOUR, hour )
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, minute)
@@ -84,13 +79,7 @@ lateinit var textt : String
 
         val adapter =  ArrayAdapter<String>(APP_ACTIVITY, R.layout.list_item, R.id.setting_alarm, arrayList)
         alarm_list.adapter = adapter
-
-        alarm_list.setOnItemClickListener { _, _, position, _ ->
-            adapter.remove(arrayList[position])
-
-
-        }
-
+        adapter.notifyDataSetChanged()
 
     }
 }
