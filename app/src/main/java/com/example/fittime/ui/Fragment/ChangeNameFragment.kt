@@ -104,10 +104,9 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
         var fomate = SimpleDateFormat("dd.MM.yyyy")
 
-        settings_btn_change_birthday.setOnClickListener {
+        settings_btn_change_birthday.setOnClickListener{
             val now = Calendar.getInstance()
 
-             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {                        // если дроид выше 7
                 val datePickerDialog =  DatePickerDialog( this.activity!! , DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     val selectedDate = Calendar.getInstance()
                     selectedDate.set(Calendar.YEAR, year)
@@ -120,9 +119,6 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)
                 )
                  datePickerDialog.show()
-            } else {
-
-            }
 
         }
     }
