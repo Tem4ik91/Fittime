@@ -1,37 +1,31 @@
 package com.example.fittime.ui.Fragment
 
-import android.app.ActionBar
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.provider.AlarmClock
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.fittime.R
-import android.content.Intent
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import com.example.fittime.utlits.APP_ACTIVITY
-import com.mikepenz.iconics.utils.toIconicsSizeDp
 import kotlinx.android.synthetic.main.fragment_coffee.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import java.text.NumberFormat.getInstance
 import java.text.SimpleDateFormat
-import java.time.Clock
 import java.util.*
 
 
 class CoffeeFragment : BaseFragment(R.layout.fragment_coffee) {
 
-    lateinit var textt: String
+    lateinit var alarmNewTime: String
     val alarm = Calendar.getInstance()
+
+
 
     override fun onResume() {
         super.onResume()
         startAlarm()
         startChangeListAlarm()
+
     }
+
+
 
     private fun startChangeListAlarm() {
 
@@ -39,57 +33,80 @@ class CoffeeFragment : BaseFragment(R.layout.fragment_coffee) {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-                textt = SimpleDateFormat("HH:mm").format(alarm.time)
-                setting_alarm0.text = textt
+                alarmNewTime = SimpleDateFormat("HH:mm").format(alarm.time)
+                setting_alarm0.text = alarmNewTime
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
         settings_btn_change_coffee1.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-                textt = SimpleDateFormat("HH:mm").format(alarm.time)
-                setting_alarm1.text = textt
+                alarmNewTime = SimpleDateFormat("HH:mm").format(alarm.time)
+                setting_alarm1.text = alarmNewTime
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
         settings_btn_change_coffee2.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-                textt = SimpleDateFormat("HH:mm").format(alarm.time)
-                setting_alarm2.text = textt
+                alarmNewTime = SimpleDateFormat("HH:mm").format(alarm.time)
+                setting_alarm2.text = alarmNewTime
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
         settings_btn_change_coffee3.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-                textt = SimpleDateFormat("HH:mm").format(alarm.time)
-                setting_alarm3.text = textt
+                alarmNewTime = SimpleDateFormat("HH:mm").format(alarm.time)
+                setting_alarm3.text = alarmNewTime
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
         settings_btn_change_coffee4.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-                textt = SimpleDateFormat("HH:mm").format(alarm.time)
-                setting_alarm4.text = textt
+                alarmNewTime = SimpleDateFormat("HH:mm").format(alarm.time)
+                setting_alarm4.text = alarmNewTime
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
         settings_btn_change_coffee5.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-                textt = SimpleDateFormat("HH:mm").format(alarm.time)
-                setting_alarm5.text = textt
+                alarmNewTime = SimpleDateFormat("HH:mm").format(alarm.time)
+                setting_alarm5.text = alarmNewTime
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
-
 
     }
 
@@ -106,7 +123,12 @@ class CoffeeFragment : BaseFragment(R.layout.fragment_coffee) {
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, minute)
                 startActivity(intent)
             }
-            TimePickerDialog(APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(Calendar.MINUTE), true).show()
+            TimePickerDialog(
+                APP_ACTIVITY, timeSetListener, alarm.get(Calendar.HOUR_OF_DAY), alarm.get(
+                    Calendar.MINUTE
+                ), true
+            ).show()
         }
     }
+
 }
