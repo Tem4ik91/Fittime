@@ -1,364 +1,350 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
-<androidx.constraintlayout.widget.ConstraintLayout
-
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.Fragment.CoffeeFragment"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-
-    <TextView
-        android:id="@+id/setting_text_alarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/vertical_margin"
-        android:layout_marginStart="@dimen/vertical_margin"
-        android:text="@string/text_alarm"
-        android:textColor="@color/mybuc"
-        android:textSize="@dimen/normalText"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".ui.Fragment.CoffeeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee0"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/setting_text_alarm">
-
-        <EditText
-            android:id="@+id/setting_editText_coffee0"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:hint="Первый завтрак"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setting_alarm0"
-            style="@style/normalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mybuc"
-            android:textSize="24dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/large_vertical_margin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7:00" />
-        <TextView
-            android:id="@+id/edit_time0"
-            style="@style/smallText"
-            android:text="Нажмите чтобы указать название и время приема пищи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_editText_coffee0"/>
-
-        <View
-            style="@style/separator"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee0"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time0" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/setting_Text_coffee0"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/text_setting_breakfast"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/setting_alarm0"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/mybuc"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/edit_time0"
+                style="@style/smallText"
+                android:text="@string/setting_lable_coffee"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_Text_coffee0" />
+
+            <View
+                android:id="@+id/view"
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_time0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee1"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee0">
+
+            <TextView
+                android:id="@+id/setting_Text_coffee1"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/text_setting_lunch"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/setting_alarm1"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/mybuc"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/edit_time1"
+                style="@style/smallText"
+                android:text="@string/setting_lable_coffee"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_Text_coffee1" />
+
+            <View
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_time1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee2"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee1">
+
+            <TextView
+                android:id="@+id/setting_Text_coffee2"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/text_setting_dinner"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/setting_alarm2"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/mybuc"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/edit_time2"
+                style="@style/smallText"
+                android:text="@string/setting_lable_coffee"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_Text_coffee2" />
+
+            <View
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_time2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee3"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee2">
+
+            <TextView
+                android:id="@+id/setting_Text_coffee3"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/text_setting_afternoon_snack"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/setting_alarm3"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/mybuc"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/edit_time3"
+                style="@style/smallText"
+                android:text="@string/setting_lable_coffee"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_Text_coffee3" />
+
+            <View
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_time3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee4"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee3">
+
+            <TextView
+                android:id="@+id/setting_Text_coffee4"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/text_setting_supper"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/setting_alarm4"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/mybuc"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/edit_time4"
+                style="@style/smallText"
+                android:text="@string/setting_lable_coffee"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_Text_coffee4" />
+
+            <View
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_time4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee5"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee4">
+
+            <TextView
+                android:id="@+id/setting_Text_coffee5"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/text_setting_late_supper"
+                android:textSize="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/setting_alarm5"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/mybuc"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7:00" />
+
+            <TextView
+                android:id="@+id/edit_time5"
+                style="@style/smallText"
+                android:text="@string/setting_lable_coffee"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_Text_coffee5" />
+
+            <View
+                android:id="@+id/separ"
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_time5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee"
+            style="@style/settingsButtons"
+            android:layout_marginVertical="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee5">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_coffee6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/register_btn_add_coffee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/horizontal_margin"
+                android:layout_marginVertical="@dimen/large_vertical_margin"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/mybuc"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            <TextView
+                android:id="@+id/edit_time6"
+                style="@style/smallText"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Нажмите на + для установики будильника"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/separ6"
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/register_btn_add_coffee" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee1"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee0">
 
-        <EditText
-            android:id="@+id/setting_editText_coffee1"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:hint="Первый завтрак"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setting_alarm1"
-            style="@style/normalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mybuc"
-            android:textSize="24dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/large_vertical_margin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7:00" />
-        <TextView
-            android:id="@+id/edit_time1"
-            style="@style/smallText"
-            android:text="Нажмите чтобы указать название и время приема пищи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_editText_coffee1"/>
-
-        <View
-            style="@style/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time1" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee2"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee1">
-
-        <EditText
-            android:id="@+id/setting_editText_coffee2"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:hint="Первый завтрак"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setting_alarm2"
-            style="@style/normalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mybuc"
-            android:textSize="24dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/large_vertical_margin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7:00" />
-        <TextView
-            android:id="@+id/edit_time2"
-            style="@style/smallText"
-            android:text="Нажмите чтобы указать название и время приема пищи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_editText_coffee2"/>
-
-        <View
-            style="@style/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee3"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee2">
-
-        <EditText
-            android:id="@+id/setting_editText_coffee3"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:hint="Первый завтрак"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setting_alarm3"
-            style="@style/normalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mybuc"
-            android:textSize="24dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/large_vertical_margin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7:00" />
-        <TextView
-            android:id="@+id/edit_time3"
-            style="@style/smallText"
-            android:text="Нажмите чтобы указать название и время приема пищи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_editText_coffee3"/>
-
-        <View
-            style="@style/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee4"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee3">
-
-        <EditText
-            android:id="@+id/setting_editText_coffee4"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:hint="Первый завтрак"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setting_alarm4"
-            style="@style/normalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mybuc"
-            android:textSize="24dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/large_vertical_margin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7:00" />
-        <TextView
-            android:id="@+id/edit_time4"
-            style="@style/smallText"
-            android:text="Нажмите чтобы указать название и время приема пищи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_editText_coffee4"/>
-
-        <View
-            style="@style/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time4" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee5"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee4">
-
-        <EditText
-            android:id="@+id/setting_editText_coffee5"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:hint="Первый завтрак"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/setting_alarm5"
-            style="@style/normalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mybuc"
-            android:textSize="24dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/large_vertical_margin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7:00" />
-        <TextView
-            android:id="@+id/edit_time5"
-            style="@style/smallText"
-            android:text="Нажмите чтобы указать название и время приема пищи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setting_editText_coffee5"/>
-
-        <View
-            android:id="@+id/separ"
-            style="@style/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time5" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee"
-        style="@style/settingsButtons"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee5">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_btn_change_coffee6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_coffee">
-
-        <TextView
-            android:id="@+id/btn_coffee6"
-            style="@style/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/edit_time6"
-            style="@style/smallText"
-            android:text="Нажмите на + для установики будильника"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_coffee6"/>
-
-        <View
-            android:id="@+id/separ6"
-            style="@style/separator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_time6" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/register_btn_add_coffee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/horizontal_margin"
-        android:backgroundTint="@color/mybuc"
-        android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
-
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

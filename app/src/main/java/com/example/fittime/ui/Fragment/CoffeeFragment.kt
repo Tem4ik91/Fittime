@@ -17,14 +17,12 @@ class CoffeeFragment : BaseFragment(R.layout.fragment_coffee) {
     val alarm = Calendar.getInstance()
 
 
-
     override fun onResume() {
         super.onResume()
         startAlarm()
         startChangeListAlarm()
 
     }
-
 
 
     private fun startChangeListAlarm() {
