@@ -74,7 +74,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                     .withIcon(R.drawable.ic_calender),
 
                 PrimaryDrawerItem().withIdentifier(102)
-                    .withName("Перерыв на обед")
+                    .withName("Питание")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_coffee),
 

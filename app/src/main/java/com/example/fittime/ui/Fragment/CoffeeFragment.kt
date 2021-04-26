@@ -51,12 +51,10 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
         setting_alarm3.text = saveString3
         setting_alarm4.text = saveString4
         setting_alarm5.text = saveString5
-
-
     }
 
-    override  fun change(){
-            saveBD()
+    override fun change() {
+        saveBD()
     }
 
     private fun saveBD() {
@@ -81,12 +79,12 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
         val editor4 = sharedPreferences4.edit()
         val editor5 = sharedPreferences5.edit()
 
-        editor0.apply(){ putString("key0", insText0) }.apply()
-        editor1.apply(){ putString("key1", insText1) }.apply()
-        editor2.apply(){ putString("key2", insText2) }.apply()
-        editor3.apply(){ putString("key3", insText3) }.apply()
-        editor4.apply(){ putString("key4", insText4) }.apply()
-        editor5.apply(){ putString("key5", insText5) }.apply()
+        editor0.apply() { putString("key0", insText0) }.apply()
+        editor1.apply() { putString("key1", insText1) }.apply()
+        editor2.apply() { putString("key2", insText2) }.apply()
+        editor3.apply() { putString("key3", insText3) }.apply()
+        editor4.apply() { putString("key4", insText4) }.apply()
+        editor5.apply() { putString("key5", insText5) }.apply()
 
         showToast(getString(R.string.toast_data_update))
 
