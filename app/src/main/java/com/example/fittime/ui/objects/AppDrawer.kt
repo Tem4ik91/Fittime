@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.fittime.R
 import com.example.fittime.ui.Fragment.CoffeeFragment
 import com.example.fittime.ui.Fragment.ProfileFragment
+import com.example.fittime.ui.Fragment.TimerFragment
 import com.example.fittime.utlits.USER
 import com.example.fittime.utlits.downloadAndSetImage
 import com.example.fittime.utlits.replaceFragment
@@ -111,6 +112,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                     when (position) {
                         1 -> mainActivity.replaceFragment(ProfileFragment())
                         3 -> mainActivity.replaceFragment(CoffeeFragment())
+                        5 -> mainActivity.replaceFragment(TimerFragment())
                     }
                     return false
                 }

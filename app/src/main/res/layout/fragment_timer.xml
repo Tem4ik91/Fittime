@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Fragment.TimerFragment">
+
+    <ImageView
+        android:id="@+id/image_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_timer"
+        android:layout_marginVertical="@dimen/large_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/thirty_sec"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/large_vertical_margin"
+        android:background="@color/mybuc"
+        android:text="@string/_30sec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_timer" />
+
+    <Button
+        android:id="@+id/sixty_sec"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@color/mybuc"
+        android:text="@string/_60sec"
+        android:layout_marginVertical="@dimen/large_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thirty_sec" />
+
+    <Button
+        android:id="@+id/two_minutes"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@color/mybuc"
+        android:text="@string/_2min"
+        android:layout_marginVertical="@dimen/large_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sixty_sec" />
+
+    <Button
+        android:id="@+id/your_timer"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@color/mybuc"
+        android:text="@string/myTimer"
+        android:layout_marginVertical="@dimen/large_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/two_minutes" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

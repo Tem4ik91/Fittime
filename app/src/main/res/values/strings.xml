@@ -49,6 +49,7 @@
         <item>Female</item>
     </string-array>
 
+    <!--Питание-->
     <string name="text_alarm">Время обеда</string>
     <string name="setting_lable_coffee">Нажмите чтобы указать время приема пищи</string>
     <string name="text_setting_breakfast">Завтрак</string>
@@ -57,5 +58,11 @@
     <string name="text_setting_supper">Ужин</string>
     <string name="text_setting_late_supper">Поздний ужин</string>
     <string name="text_setting_afternoon_snack">Полдник</string>
+
+    <!--Таймер тренировки-->
+    <string name="_30sec">30 секунд</string>
+    <string name="_60sec">60 секунд</string>
+    <string name="_2min">2 минуты</string>
+    <string name="myTimer">Свое время</string>
 
 </resources>
