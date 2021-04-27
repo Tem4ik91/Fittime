@@ -24,4 +24,8 @@ open class BaseFragment(layout: Int) : Fragment(layout) {
         APP_ACTIVITY.mAppDrawer.enableDrawer()       //вкл бок меню
         hideKeyboard()
     }
+
+    open fun change() {
+
+    }
 }
