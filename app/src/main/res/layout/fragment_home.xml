@@ -1,21 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Fragment.HomeFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Дом"
-        android:textColor="@color/black" />
+        tools:context=".ui.Fragment.ProfileFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile_header_bloc"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/mybuc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/settings_profile_image"
+                android:layout_width="@dimen/settings_user_photo_maxwidth"
+                android:layout_height="@dimen/settings_user_photo_maxheight"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginStart="152dp"
+                android:src="@drawable/ic_add_account"
+                app:civ_circle_background_color="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.32" />
+
+            <TextView
+                android:id="@+id/settings_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normalText"
+                app:layout_constraintEnd_toEndOf="@+id/settings_profile_image"
+                app:layout_constraintStart_toStartOf="@+id/settings_profile_image"
+                app:layout_constraintTop_toBottomOf="@+id/settings_profile_image"
+                tools:text="@string/text_name_default">
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_btn_change_weight"
+            style="@style/TextString"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_header_bloc">
+
+            <TextView
+                android:id="@+id/home_text_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mybuc"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="1154"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/home_text_step" />
+
+            <TextView
+                android:id="@+id/setting_steps_target"
+                style="@style/smallText"
+                android:text="Еще 6848 шаг. до цели "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_text_step"/>
+
+            <TextView
+                android:id="@+id/setting_weight"
+                style="@style/normalText"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                tools:text="ТУТ график"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/home_text_step" />
+
+            <View
+                style="@style/separator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_steps_target" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
