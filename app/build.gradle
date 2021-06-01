@@ -73,6 +73,11 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.0" //1.1.0
     implementation "androidx.annotation:annotation:1.2.0"  //1.1.0
 
+  //  implementation 'com.google.android.gms:play-services:6.5.+' // зависимость от Play Services
+
+    implementation "com.google.android.gms:play-services-fitness:20.0.0"
+    implementation "com.google.android.gms:play-services-auth:19.0.0"
+
 
 
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'    //выделение, лицо картинка
