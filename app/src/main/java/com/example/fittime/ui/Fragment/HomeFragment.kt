@@ -22,33 +22,36 @@ import kotlinx.android.synthetic.main.fragment_profile.settings_profile_image
 
 class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
 
-  //  private var sensorManager:SensorManager? = null
+    private var sensorManager:SensorManager? = null
 
     private var running = false
     private var totalSteps = 0f
     private var previousTotalSteps = 0f
 
-
+    override fun onStart() {
+        super.onStart()
+        loadData()
+        resetSteps()
+        sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+    }
 
     override fun onResume() {
         super.onResume()
         //  setHasOptionsMenu(true)
         initFields()
 
-    /*    loadData()
-        resetSteps()*/
-
-        //sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
         running = true
 
-        val stepSensor: Sensor? = APP_ACTIVITY.sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+        val stepSensor: Sensor? = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
 
-        if (stepSensor == null){
-            showToast("Нет датчика на девайсе")
+        if (stepSensor != null){
+            sensorManager?.registerListener(this,stepSensor,SensorManager.SENSOR_DELAY_UI)
         }else{
-            APP_ACTIVITY.sensorManager?.registerListener(APP_ACTIVITY,stepSensor,SensorManager.SENSOR_DELAY_UI)
+            showToast("Нет датчика на девайсе")
         }
+
+
     }
 
 
@@ -60,8 +63,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         if(running){
             totalSteps = event!!.values[0]
             showToast("eeeeeeeeeeeee")
-            val currentSteps = totalSteps//.toInt() //- previousTotalSteps.toInt()
-            home_text_step.text = previousTotalSteps.toString()//currentSteps.toString()
+            val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
+            home_text_step.text = currentSteps.toString()
 
             progress_circular.apply {
                 setProgressWithAnimation(currentSteps.toFloat())
@@ -90,7 +93,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         previousTotalSteps = savedNumber
     }
 
-    fun resetSteps() {
+    private fun resetSteps() {
         progress_circular.setOnClickListener {
             showToast("Длинное нажатие, обнулит шаги")
         }
@@ -104,13 +107,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     }
 }
 
-private fun SensorManager?.registerListener(
-    appActivity: MainActivity,
-    stepSensor: Sensor,
-    sensorDelayUi: Int
-) {
-
-}
 
 
 

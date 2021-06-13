@@ -16,6 +16,7 @@ import com.google.android.gms.fitness.FitnessOptions
 import com.google.android.gms.fitness.data.DataType
 import com.theartofdev.edmodo.cropper.CropImage
 import android.Manifest
+import android.app.DownloadManager
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.hardware.Sensor
@@ -28,6 +29,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.webkit.PermissionRequest
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
@@ -42,12 +44,13 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var mBinding: ActivityMainBinding
     lateinit var mAppDrawer: AppDrawer
     private lateinit var mToolbar: Toolbar
 
-    var sensorManager:SensorManager? = null
 
+    val REQ_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +63,11 @@ class MainActivity : AppCompatActivity() {
             initFunc()
         }
 
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACTIVITY_RECOGNITION), REQ_CODE)
+        }
+
 
     }
 
