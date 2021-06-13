@@ -1,120 +1,120 @@
 package com.example.fittime.ui.Fragment
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Build
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.helper.widget.MotionEffect.TAG
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
+import com.example.fittime.MainActivity
 import com.example.fittime.R
 import com.example.fittime.utlits.APP_ACTIVITY
 import com.example.fittime.utlits.USER
 import com.example.fittime.utlits.downloadAndSetImage
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.fitness.Fitness
-import com.google.android.gms.fitness.FitnessOptions
-import com.google.android.gms.fitness.data.DataType
-import com.google.android.gms.fitness.request.DataReadRequest
+import com.example.fittime.utlits.showToast
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.util.concurrent.TimeUnit
+import kotlinx.android.synthetic.main.fragment_profile.settings_full_name
+import kotlinx.android.synthetic.main.fragment_profile.settings_profile_image
+
+class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
+
+  //  private var sensorManager:SensorManager? = null
+
+    private var running = false
+    private var totalSteps = 0f
+    private var previousTotalSteps = 0f
 
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
-
-
-    val GOOGLE_FIT_PERMISSIONS_REQUEST_CODE = 1
-    val fitnessOptions = FitnessOptions.builder()
-        .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
-        .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
-        .build()
 
     override fun onResume() {
         super.onResume()
-      //  setHasOptionsMenu(true)
+        //  setHasOptionsMenu(true)
         initFields()
 
+    /*    loadData()
+        resetSteps()*/
+
+        //sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+        running = true
+
+        val stepSensor: Sensor? = APP_ACTIVITY.sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+
+        if (stepSensor == null){
+            showToast("Нет датчика на девайсе")
+        }else{
+            APP_ACTIVITY.sensorManager?.registerListener(APP_ACTIVITY,stepSensor,SensorManager.SENSOR_DELAY_UI)
+        }
     }
+
 
     private fun initFields() {
-
-
-
         settings_full_name.text = USER.fullname
-        settings_profile_image.downloadAndSetImage(USER.photoUrl)
+        settings_profile_image.downloadAndSetImage(USER.photoUrl)}
 
-        val fitnessOptions = FitnessOptions.builder()
-            .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
-            .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
-            .build()
+    override fun onSensorChanged(event: SensorEvent?) {
+        if(running){
+            totalSteps = event!!.values[0]
+            showToast("eeeeeeeeeeeee")
+            val currentSteps = totalSteps//.toInt() //- previousTotalSteps.toInt()
+            home_text_step.text = previousTotalSteps.toString()//currentSteps.toString()
 
-        val account = GoogleSignIn.getAccountForExtension(APP_ACTIVITY, fitnessOptions)
-
-        if (!GoogleSignIn.hasPermissions(account, fitnessOptions)) {
-            GoogleSignIn.requestPermissions(
-                APP_ACTIVITY, // your activity
-                GOOGLE_FIT_PERMISSIONS_REQUEST_CODE, // e.g. 1
-                account,
-                fitnessOptions)
-        } else {
-            accessGoogleFit()
-        }
-
-
-        Fitness.getRecordingClient(APP_ACTIVITY, GoogleSignIn.getAccountForExtension(APP_ACTIVITY, fitnessOptions))
-            // This example shows subscribing to a DataType, across all possible data
-            // sources. Alternatively, a specific DataSource can be used.
-            .subscribe(DataType.TYPE_STEP_COUNT_DELTA)
-            .addOnSuccessListener {
-                Log.i(TAG, "Successfully subscribed!")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "There was a problem subscribing.", e)
-            }
-
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (resultCode) {
-            Activity.RESULT_OK -> when (requestCode) {
-                GOOGLE_FIT_PERMISSIONS_REQUEST_CODE -> accessGoogleFit()
-                else -> {
-                    // Result wasn't from Google Fit
-                }
-            }
-            else -> {
-                // Permission not granted
+            progress_circular.apply {
+                setProgressWithAnimation(currentSteps.toFloat())
             }
         }
     }
 
-    private fun accessGoogleFit() {
-        val end = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            LocalDateTime.now()
-        } else {
-            TODO("VERSION.SDK_INT < O")
-        }
-        val start = end.minusYears(1)
-        val endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond()
-        val startSeconds = start.atZone(ZoneId.systemDefault()).toEpochSecond()
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
-        val readRequest = DataReadRequest.Builder()
-            .aggregate(DataType.AGGREGATE_STEP_COUNT_DELTA)
-            .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
-            .bucketByTime(1, TimeUnit.DAYS)
-            .build()
-        val account = GoogleSignIn.getAccountForExtension(APP_ACTIVITY, fitnessOptions)
-        Fitness.getHistoryClient(APP_ACTIVITY, account)
-            .readData(readRequest)
-            .addOnSuccessListener ({ response ->
-                // Use response data here
-                Log.i(TAG, "OnSuccess()")
-            })
-            .addOnFailureListener({ e -> Log.d(TAG, "OnFailure()", e) })
     }
 
+
+
+
+   private fun saveData() {
+        val sharedPreferences = APP_ACTIVITY.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putFloat("key1", previousTotalSteps)
+        editor.apply()
+   }
+
+    private fun loadData(){
+        val sharedPreferences = APP_ACTIVITY.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val savedNumber = sharedPreferences.getFloat("key1",0f)
+        Log.d("MainActyvity", "$savedNumber")
+        previousTotalSteps = savedNumber
+    }
+
+    fun resetSteps() {
+        progress_circular.setOnClickListener {
+            showToast("Длинное нажатие, обнулит шаги")
+        }
+        progress_circular.setOnLongClickListener {
+            previousTotalSteps = totalSteps
+            home_text_step.text = 0.toString()
+            saveData()
+            true
+        }
+
+    }
+}
+
+private fun SensorManager?.registerListener(
+    appActivity: MainActivity,
+    stepSensor: Sensor,
+    sensorDelayUi: Int
+) {
 
 }
+
+
+
+
+
+
+

@@ -62,7 +62,7 @@
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:layout_marginStart="@dimen/horizontal_margin"
-                android:text="1154"
+                tools:text="1154"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/home_text_step" />
 
@@ -73,19 +73,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_text_step"/>
 
-            <TextView
-                android:id="@+id/setting_weight"
-                style="@style/normalText"
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_margin="5dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginEnd="@dimen/horizontal_margin"
-                tools:text="ТУТ график"
+                app:cpb_background_progressbar_color="@color/grey"
+                app:cpb_background_progressbar_width="10dp"
+                app:cpb_progressbar_color="@color/mybuc"
+                app:cpb_progressbar_width="8dp"
+                app:cpb_round_border="true"
+                app:cpb_progress_max="2500"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/home_text_step" />
+                app:layout_constraintTop_toTopOf="@+id/home_text_step"
+                tools:text="ТУТ график" />
 
             <View
                 style="@style/separator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/setting_steps_target" />
+                app:layout_constraintTop_toBottomOf="@id/progress_circular" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

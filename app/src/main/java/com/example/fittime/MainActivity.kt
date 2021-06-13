@@ -12,7 +12,32 @@ import com.example.fittime.models.User
 import com.example.fittime.ui.Fragment.HomeFragment
 import com.example.fittime.ui.objects.AppDrawer
 import com.example.fittime.utlits.*
+import com.google.android.gms.fitness.FitnessOptions
+import com.google.android.gms.fitness.data.DataType
 import com.theartofdev.edmodo.cropper.CropImage
+import android.Manifest
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.net.Uri
+import android.provider.Settings
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.widget.TextViewCompat
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.fitness.Fitness
+import com.google.android.gms.fitness.data.Field
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.logging.LogWrapper
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +45,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     lateinit var mAppDrawer: AppDrawer
     private lateinit var mToolbar: Toolbar
+
+    var sensorManager:SensorManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +60,10 @@ class MainActivity : AppCompatActivity() {
             initFunc()
         }
 
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
     }
+
 
     private fun initFunc() {
         if(AUTH.currentUser!=null){                                                   //проверка на авторизацию
