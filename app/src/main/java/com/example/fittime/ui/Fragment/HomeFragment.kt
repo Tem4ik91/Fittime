@@ -15,6 +15,7 @@ import com.example.fittime.utlits.APP_ACTIVITY
 import com.example.fittime.utlits.USER
 import com.example.fittime.utlits.downloadAndSetImage
 import com.example.fittime.utlits.showToast
+import kotlinx.android.synthetic.main.fragment_coffee.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.settings_full_name
@@ -39,8 +40,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         super.onResume()
         //  setHasOptionsMenu(true)
         initFields()
-
-
+        loadData()
         running = true
 
         val stepSensor: Sensor? = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
@@ -51,12 +51,21 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             showToast("Нет датчика на девайсе")
         }
 
+       //home_text_distance.text= ("Пройдено  км")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        saveData()
+        running = false
     }
 
 
     private fun initFields() {
         settings_full_name.text = USER.fullname
-        settings_profile_image.downloadAndSetImage(USER.photoUrl)}
+        settings_profile_image.downloadAndSetImage(USER.photoUrl)
+    }
 
     override fun onSensorChanged(event: SensorEvent?) {
         if(running){
@@ -66,7 +75,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             home_text_step.text = currentSteps.toString()
 
             val r = currentSteps * 0.04
-
             val ccal = String.format("%.2f", r )
             home_text_calories.text = ("Сожжено $ccal ккал")
 
@@ -75,6 +83,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             home_text_distance.text= ("Пройдено $t км")
 
 
+            val cell = 8000 - currentSteps
+            setting_steps_target.text = ("Еще $cell шаг. до цели")
 
             progress_circular.apply {
                 setProgressWithAnimation(currentSteps.toFloat())
@@ -87,12 +97,32 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     }
 
 
-
    private fun saveData() {
         val sharedPreferences = APP_ACTIVITY.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putFloat("key1", previousTotalSteps)
         editor.apply()
+
+       val insText0 = home_text_calories.text.toString()
+       val sharedPreferences0 = APP_ACTIVITY.getSharedPreferences("myPrefs0", Context.MODE_PRIVATE)
+       val editor0 = sharedPreferences0.edit()
+       editor0.apply() { putString("myPrefs0", insText0) }.apply()
+
+       val insText1 = home_text_distance.text.toString()
+       val sharedPreferences1 = APP_ACTIVITY.getSharedPreferences("myPrefs1", Context.MODE_PRIVATE)
+       val editor1 = sharedPreferences1.edit()
+       editor1.apply() { putString("myPrefs1", insText1) }.apply()
+
+       val insText2 = setting_steps_target.text.toString()
+       val sharedPreferences2 = APP_ACTIVITY.getSharedPreferences("myPrefs2", Context.MODE_PRIVATE)
+       val editor2 = sharedPreferences2.edit()
+       editor2.apply() { putString("myPrefs2", insText2) }.apply()
+
+       val insText3 = home_text_step.text.toString()
+       val sharedPreferences3 = APP_ACTIVITY.getSharedPreferences("myPrefs3", Context.MODE_PRIVATE)
+       val editor3 = sharedPreferences3.edit()
+       editor3.apply() { putString("myPrefs3", insText3) }.apply()
+
    }
 
     private fun loadData(){
@@ -100,6 +130,22 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         val savedNumber = sharedPreferences.getFloat("key1",0f)
         Log.d("MainActyvity", "$savedNumber")
         previousTotalSteps = savedNumber
+
+        val sharedPreferences0 = APP_ACTIVITY.getSharedPreferences("myPrefs0", Context.MODE_PRIVATE)
+        val sharedPreferences1 = APP_ACTIVITY.getSharedPreferences("myPrefs1", Context.MODE_PRIVATE)
+        val sharedPreferences2 = APP_ACTIVITY.getSharedPreferences("myPrefs2", Context.MODE_PRIVATE)
+        val sharedPreferences3 = APP_ACTIVITY.getSharedPreferences("myPrefs3", Context.MODE_PRIVATE)
+
+        val saveString0 = sharedPreferences0.getString("myPrefs0", null)
+        val saveString1 = sharedPreferences1.getString("myPrefs1", null)
+        val saveString2 = sharedPreferences2.getString("myPrefs2", null)
+        val saveString3 = sharedPreferences3.getString("myPrefs3", null)
+
+        home_text_calories.text = saveString0
+        home_text_distance.text = saveString1
+        setting_steps_target.text = saveString2
+        home_text_step.text = saveString3
+
     }
 
     private fun resetSteps() {

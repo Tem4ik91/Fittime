@@ -69,7 +69,7 @@
             <TextView
                 android:id="@+id/setting_steps_target"
                 style="@style/smallText"
-                android:text="Еще 6848 шаг. до цели "
+                tools:text="Еще 6848 шаг. до цели"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_text_step"/>
 
