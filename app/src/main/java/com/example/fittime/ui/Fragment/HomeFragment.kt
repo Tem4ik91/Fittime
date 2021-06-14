@@ -51,7 +51,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             showToast("Нет датчика на девайсе")
         }
 
-
     }
 
 
@@ -62,9 +61,20 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if(running){
             totalSteps = event!!.values[0]
-            showToast("eeeeeeeeeeeee")
+          //  showToast("eeeeeeeeeeeee")
             val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
             home_text_step.text = currentSteps.toString()
+
+            val r = currentSteps * 0.04
+
+            val ccal = String.format("%.2f", r )
+            home_text_calories.text = ("Сожжено $ccal ккал")
+
+            val consider = ((7.9 * currentSteps)/100000)
+            val t = String.format("%.3f", consider)
+            home_text_distance.text= ("Пройдено $t км")
+
+
 
             progress_circular.apply {
                 setProgressWithAnimation(currentSteps.toFloat())
@@ -75,7 +85,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
     }
-
 
 
 

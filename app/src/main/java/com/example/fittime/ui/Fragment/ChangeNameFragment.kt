@@ -103,7 +103,6 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     private fun dateOfBirth() {
 
         var fomate = SimpleDateFormat("dd.MM.yyyy")
-
         settings_btn_change_birthday.setOnClickListener{
             val now = Calendar.getInstance()
 
@@ -119,7 +118,6 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
                     now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH)
                 )
                  datePickerDialog.show()
-
         }
     }
 

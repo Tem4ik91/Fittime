@@ -180,7 +180,6 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
                 alarm.set(Calendar.MINUTE, minute)
-
                 val intent = Intent(AlarmClock.ACTION_SET_ALARM)
                 intent.putExtra(AlarmClock.EXTRA_MESSAGE, "")
                 intent.putExtra(AlarmClock.EXTRA_HOUR, hour)

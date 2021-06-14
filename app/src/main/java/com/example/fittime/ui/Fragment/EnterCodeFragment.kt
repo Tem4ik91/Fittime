@@ -16,7 +16,6 @@ class EnterCodeFragment(val phoneNumber: String, val id: String) :
         super.onStart()
         (activity as RegisterActivity).title = phoneNumber
         register_input_phone_code.addTextChangedListener(AppTextWatcher {
-
             val string = register_input_phone_code.text.toString()
             if (string.length >= 6) {
                 enterCode()

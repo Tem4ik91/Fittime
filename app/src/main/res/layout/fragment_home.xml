@@ -23,11 +23,10 @@
                 android:id="@+id/settings_profile_image"
                 android:layout_width="@dimen/settings_user_photo_maxwidth"
                 android:layout_height="@dimen/settings_user_photo_maxheight"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginStart="152dp"
                 android:src="@drawable/ic_add_account"
                 app:civ_circle_background_color="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.32" />
@@ -58,13 +57,14 @@
                 android:id="@+id/home_text_step"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/mybuc"
-                android:textStyle="bold"
-                android:textSize="25sp"
                 android:layout_marginStart="@dimen/horizontal_margin"
-                tools:text="1154"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/mybuc"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/home_text_step" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1154" />
 
             <TextView
                 android:id="@+id/setting_steps_target"
@@ -75,19 +75,57 @@
 
             <com.mikhaellopez.circularprogressbar.CircularProgressBar
                 android:id="@+id/progress_circular"
+                android:layout_width="107dp"
+                android:layout_height="107dp"
                 android:layout_margin="5dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 app:cpb_background_progressbar_color="@color/grey"
-                app:cpb_background_progressbar_width="10dp"
-                app:cpb_progressbar_color="@color/mybuc"
-                app:cpb_progressbar_width="8dp"
-                app:cpb_round_border="true"
+                app:cpb_background_progressbar_width="15dp"
                 app:cpb_progress_max="2500"
+                app:cpb_progressbar_color="@color/mybuc"
+                app:cpb_progressbar_width="15dp"
+                app:cpb_round_border="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/home_text_step"
-                tools:text="ТУТ график" />
+                 />
+
+            <ImageView
+                android:id="@+id/stepimg"
+                android:layout_width="65dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic__walk_24"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_circular"
+                app:layout_constraintEnd_toEndOf="@+id/progress_circular"
+                app:layout_constraintStart_toStartOf="@+id/progress_circular"
+                app:layout_constraintTop_toTopOf="@+id/progress_circular"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/home_text_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/mybuc"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setting_steps_target"
+                tools:text="Сожжено 35 ккал" />
+
+            <TextView
+                android:id="@+id/home_text_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/mybuc"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_text_calories"
+                tools:text="Пройдено 0,89 км" />
 
             <View
                 style="@style/separator"

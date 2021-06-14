@@ -69,6 +69,13 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+    }
+
+    private fun connect(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_NETWORK_STATE), REQ_CODE)
+        }
     }
 
 

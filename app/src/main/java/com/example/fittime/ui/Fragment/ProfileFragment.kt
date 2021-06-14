@@ -31,9 +31,7 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         setting_weight.text = USER.weight
 
         settings_change_photo.setOnClickListener { changePhotoUser() }
-
         settings_profile_image.downloadAndSetImage(USER.photoUrl)
-
 
     }
 
