@@ -41,6 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         super.onStart()
         loadData()
         resetSteps()
+        zeroing()
         graf()
         sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
@@ -53,6 +54,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         initFields()
         loadData()
         graf()
+        zeroing()
         running = true
 
         val stepSensor: Sensor? = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
@@ -129,8 +131,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         // barChart.animate(barSet)
         barChart.animate(welist)
         barChart.labelsFormatter =  { "${it.roundToInt()}" }
-
-
 
     }
 
@@ -260,6 +260,20 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         }
 
     }
+
+    private fun zeroing(){
+        val c = Calendar.getInstance()
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
+        if (hour == 0 && minute == 0 ) {
+            previousTotalSteps = totalSteps
+            home_text_step.text = 0.toString()
+            home_text_calories.text = 0.toString()
+            home_text_distance.text = 0.toString()
+            saveData()
+        }
+    }
+
 }
 
 
