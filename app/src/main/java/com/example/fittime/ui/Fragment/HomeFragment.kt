@@ -39,7 +39,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         super.onStart()
         loadData()
         resetSteps()
+        graf()
         sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
     }
 
 
@@ -75,7 +77,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     private fun initFields() {
         settings_full_name.text = USER.fullname
         settings_profile_image.downloadAndSetImage(USER.photoUrl)
-
+        //graf()
 
 
     }
@@ -109,33 +111,27 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
 
     }
 
-    companion object {
-        private val lineSet = listOf(
-            "Mo" to 5f,
-            "Tu" to 4.5f,
-            "We" to 4.7f,
-            "Th" to 3.5f,
-            "Fr" to 3.6f,
-            "Sa" to 7.5f,
-            "Su" to 7.5f,
 
-        )
-        private val barSet = listOf(
-            "Mo" to 4F,
-            "Tu" to 7F,
-            "We" to 2F,
-            "Th" to 2.3F,
-            "Fr" to 5F,
-            "Sa" to 4F,
-            "Su" to 4F
-        )
-    }
+
+
+
 
     private fun graf(){
 
+        val we = listOf(
+            "Mo".format("%.1f") to USER.weight.toFloat(),
+            "Tu".format("%.1f") to 4f,
+            "We".format("%.1f") to 4f,
+            "Th".format("%.1f") to 3f,
+            "Fr".format("%.1f") to 3f,
+            "Sa".format("%.1f") to 7f,
+            "Su".format("%.1f") to 7f,
+
+        )
+
         barChart.animation.duration = animationDuration
-       // barChart.animate (barSet)
-        barChart.animate(lineSet)
+       // barChart.animate(barSet)
+        barChart.animate(we)
 
     }
 
