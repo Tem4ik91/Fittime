@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,8 +41,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/settings_profile_image"
                 app:layout_constraintStart_toStartOf="@+id/settings_profile_image"
                 app:layout_constraintTop_toBottomOf="@+id/settings_profile_image"
-                tools:text="@string/text_name_default">
-            </TextView>
+                tools:text="@string/text_name_default"></TextView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -69,9 +68,9 @@
             <TextView
                 android:id="@+id/setting_steps_target"
                 style="@style/smallText"
-                tools:text="Еще 6848 шаг. до цели"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_text_step"/>
+                app:layout_constraintTop_toBottomOf="@id/home_text_step"
+                tools:text="Еще 6848 шаг. до цели" />
 
             <com.mikhaellopez.circularprogressbar.CircularProgressBar
                 android:id="@+id/progress_circular"
@@ -87,8 +86,7 @@
                 app:cpb_progressbar_width="15dp"
                 app:cpb_round_border="true"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/home_text_step"
-                 />
+                app:layout_constraintTop_toTopOf="@+id/home_text_step" />
 
             <ImageView
                 android:id="@+id/stepimg"
@@ -132,15 +130,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/progress_circular" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/home_graf"
+            style="@style/TextString"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_btn_change_weight">
+
+
+
+            <com.db.williamchart.view.BarChartView
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+               android:layout_height="match_parent"
+                app:chart_spacing="40dp"
+                app:chart_barsColor="@color/mybuc"
+                app:chart_barsBackgroundColor="@color/white"
+                 />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

@@ -20,6 +20,7 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         super.onResume()
         setHasOptionsMenu(true)
         initFields()
+        activity?.setTitle("Профиль").toString()
     }
 
     private fun initFields() {

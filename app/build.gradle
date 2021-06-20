@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.fittime"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -82,6 +82,12 @@ dependencies {
 
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'    //выделение, лицо картинка
 
+
+    // Charts
+    implementation 'com.diogobernardino:williamchart:3.10.1'
+
+// Tooltips
+    implementation 'com.diogobernardino.williamchart:tooltip-slider:3.10.1'
 
 
 // Add for NavController support

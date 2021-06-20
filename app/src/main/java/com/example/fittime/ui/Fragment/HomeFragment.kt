@@ -20,6 +20,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.settings_full_name
 import kotlinx.android.synthetic.main.fragment_profile.settings_profile_image
+import kotlin.random.Random
+import com.db.williamchart.ExperimentalFeature
+import com.db.williamchart.slidertooltip.SliderTooltip
 
 class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
 
@@ -29,6 +32,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     private var totalSteps = 0f
     private var previousTotalSteps = 0f
 
+    private val animationDuration = 1000L
+
+
     override fun onStart() {
         super.onStart()
         loadData()
@@ -36,11 +42,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
+
+
+
     override fun onResume() {
         super.onResume()
         //  setHasOptionsMenu(true)
         initFields()
         loadData()
+        graf()
         running = true
 
         val stepSensor: Sensor? = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
@@ -51,8 +61,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             showToast("Нет датчика на девайсе")
         }
 
-       //home_text_distance.text= ("Пройдено  км")
 
+        activity?.setTitle("Fittime").toString()
     }
 
     override fun onPause() {
@@ -65,6 +75,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     private fun initFields() {
         settings_full_name.text = USER.fullname
         settings_profile_image.downloadAndSetImage(USER.photoUrl)
+
+
+
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
@@ -79,7 +92,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             home_text_calories.text = ("Сожжено $ccal ккал")
 
             val consider = ((7.9 * currentSteps)/100000)
-            val t = String.format("%.3f", consider)
+            val t = String.format("%.2f", consider)
             home_text_distance.text= ("Пройдено $t км")
 
 
@@ -93,6 +106,36 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
+    }
+
+    companion object {
+        private val lineSet = listOf(
+            "Mo" to 5f,
+            "Tu" to 4.5f,
+            "We" to 4.7f,
+            "Th" to 3.5f,
+            "Fr" to 3.6f,
+            "Sa" to 7.5f,
+            "Su" to 7.5f,
+
+        )
+        private val barSet = listOf(
+            "Mo" to 4F,
+            "Tu" to 7F,
+            "We" to 2F,
+            "Th" to 2.3F,
+            "Fr" to 5F,
+            "Sa" to 4F,
+            "Su" to 4F
+        )
+    }
+
+    private fun graf(){
+
+        barChart.animation.duration = animationDuration
+       // barChart.animate (barSet)
+        barChart.animate(lineSet)
 
     }
 

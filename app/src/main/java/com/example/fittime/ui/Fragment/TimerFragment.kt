@@ -24,6 +24,8 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
 
     override fun onResume() {
         super.onResume()
+        activity?.setTitle("Таймер").toString()
+
 
         thirty_sec.setOnClickListener {
             val timerDialog = AlertDialog.Builder(APP_ACTIVITY).create()

@@ -1,15 +1,18 @@
 package com.example.fittime.ui.Fragment
 
+import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.widget.EditText
 import android.widget.Toast
 import com.example.fittime.R
 import com.example.fittime.utlits.APP_ACTIVITY
 import com.example.fittime.utlits.showToast
+import kotlinx.android.synthetic.main.fragment_change_name.*
 import kotlinx.android.synthetic.main.fragment_coffee.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,10 +25,13 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
 
 
     override fun onResume() {
+
         super.onResume()
         startAlarm()
         startChangeListAlarm()
         loadBD()
+
+        activity?.setTitle("Питание").toString()
 
 
     }
@@ -107,6 +113,22 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
                 ), true
             ).show()
         }
+        settings_btn_change_coffee0.setOnLongClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+            with(growthDialog){
+                setTitle("Удалить время?")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_alarm0.text = ""
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.show()
+            true
+        }
+
         settings_btn_change_coffee1.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
@@ -119,6 +141,21 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
                     Calendar.MINUTE
                 ), true
             ).show()
+        }
+        settings_btn_change_coffee1.setOnLongClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+            with(growthDialog){
+                setTitle("Удалить время?")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_alarm1.text = ""
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.show()
+            true
         }
         settings_btn_change_coffee2.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
@@ -133,6 +170,21 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
                 ), true
             ).show()
         }
+        settings_btn_change_coffee2.setOnLongClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+            with(growthDialog){
+                setTitle("Удалить время?")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_alarm2.text = ""
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.show()
+            true
+        }
         settings_btn_change_coffee3.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
@@ -145,6 +197,21 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
                     Calendar.MINUTE
                 ), true
             ).show()
+        }
+        settings_btn_change_coffee3.setOnLongClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+            with(growthDialog){
+                setTitle("Удалить время?")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_alarm3.text = ""
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.show()
+            true
         }
         settings_btn_change_coffee4.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
@@ -159,6 +226,21 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
                 ), true
             ).show()
         }
+        settings_btn_change_coffee4.setOnLongClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+            with(growthDialog){
+                setTitle("Удалить время?")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_alarm4.text = ""
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.show()
+            true
+        }
         settings_btn_change_coffee5.setOnClickListener {
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 alarm.set(Calendar.HOUR_OF_DAY, hour)
@@ -171,6 +253,21 @@ class CoffeeFragment : BaseOkSaveFragment(R.layout.fragment_coffee) {
                     Calendar.MINUTE
                 ), true
             ).show()
+        }
+        settings_btn_change_coffee5.setOnLongClickListener {
+            val growthDialog = AlertDialog.Builder(this.activity)
+            with(growthDialog){
+                setTitle("Удалить время?")
+                setPositiveButton("Ok"){dialog, which ->
+                    setting_alarm5.text = ""
+                    dialog.dismiss()
+                }
+                setNegativeButton("Cancel"){dialog, which ->
+                    dialog.dismiss()
+                }
+            }
+            growthDialog.show()
+            true
         }
 
     }
