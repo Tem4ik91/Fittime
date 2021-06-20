@@ -30,6 +30,14 @@ const val CHILD_GROWTH = "growth"
 const val CHILD_WEIGHT = "weight"
 const val CHILD_PHOTO_URL = "photoUrl"
 
+const val CHILD_MON = "mon"
+const val CHILD_TUE = "tue"
+const val CHILD_WED = "wed"
+const val CHILD_THU = "thu"
+const val CHILD_FRI = "fri"
+const val CHILD_SAT = "sat"
+const val CHILD_SUN = "sun"
+
 
 fun initFirebase() {                                                        //инициализация подключения к БД
     AUTH = FirebaseAuth.getInstance()

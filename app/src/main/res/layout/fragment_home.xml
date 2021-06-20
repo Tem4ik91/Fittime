@@ -147,9 +147,10 @@
                 android:id="@+id/barChart"
                 android:layout_width="match_parent"
                android:layout_height="match_parent"
-                app:chart_spacing="40dp"
+                app:chart_spacing="20dp"
                 app:chart_barsColor="@color/mybuc"
                 app:chart_barsBackgroundColor="@color/white"
+
                  />
 
 
