@@ -36,6 +36,12 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        initFields()
+
+    }
+
     private fun changePhotoUser() {
         CropImage.activity()
             .setAspectRatio(1, 1)

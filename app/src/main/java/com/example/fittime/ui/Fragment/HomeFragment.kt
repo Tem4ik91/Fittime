@@ -118,13 +118,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     private fun graf() {
 
         val welist = listOf(
-            "Mo" to String.format("%.0f",USER.mon.toFloat()).toFloat(),
-            "Tu" to String.format("%.0f",USER.tue.toFloat()).toFloat(),
-            "We" to String.format("%.0f",USER.wed.toFloat()).toFloat(),
-            "Th" to String.format("%.0f",USER.thu.toFloat()).toFloat(),
-            "Fr" to String.format("%.0f",USER.fri.toFloat()).toFloat(),
-            "Sa" to String.format("%.0f",USER.sat.toFloat()).toFloat(),
-            "Su" to String.format("%.0f",USER.sun.toFloat()).toFloat(),
+            "Пн" to USER.mon.toFloat(),
+            "Вт" to USER.tue.toFloat(),
+            "Ср" to USER.wed.toFloat(),
+            "Чт" to USER.thu.toFloat(),
+            "Пт" to USER.fri.toFloat(),
+            "Сб" to USER.sat.toFloat(),
+            "Вс" to USER.sun.toFloat(),
         )
 
         barChart.animation.duration = animationDuration

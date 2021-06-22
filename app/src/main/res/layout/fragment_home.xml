@@ -81,7 +81,7 @@
                 android:layout_marginEnd="16dp"
                 app:cpb_background_progressbar_color="@color/grey"
                 app:cpb_background_progressbar_width="15dp"
-                app:cpb_progress_max="2500"
+                app:cpb_progress_max="8000"
                 app:cpb_progressbar_color="@color/mybuc"
                 app:cpb_progressbar_width="15dp"
                 app:cpb_round_border="true"

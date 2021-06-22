@@ -82,6 +82,8 @@ dependencies {
 
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'    //выделение, лицо картинка
 
+    implementation 'com.github.tizisdeepan:eventscalendar:1.6.1' //calendar
+    implementation 'com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.3' //calendar
 
     // Charts
     implementation 'com.diogobernardino:williamchart:3.10.1'

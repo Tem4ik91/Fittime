@@ -1,6 +1,7 @@
 package com.example.fittime.ui.Fragment
 
 import android.app.AlertDialog
+import android.app.TimePickerDialog
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -15,12 +16,17 @@ import com.example.fittime.R
 import com.example.fittime.utlits.APP_ACTIVITY
 import com.example.fittime.utlits.showToast
 import kotlinx.android.synthetic.main.fragment_change_name.*
+import kotlinx.android.synthetic.main.fragment_coffee.*
 import kotlinx.android.synthetic.main.fragment_timer.*
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.concurrent.timer
 
 
 class TimerFragment : BaseFragment(R.layout.fragment_timer) {
 
+    lateinit var alarmNewTime: String
+    val alarm = Calendar.getInstance()
 
     override fun onResume() {
         super.onResume()
@@ -101,6 +107,7 @@ class TimerFragment : BaseFragment(R.layout.fragment_timer) {
             }
             timer.start()
         }
+
     }
 
 
